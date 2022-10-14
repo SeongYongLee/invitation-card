@@ -1,4 +1,7 @@
 export {
-  defaultFadeInScaleVariants,
-  defaultFadeInVariants,
+  fadeScaleToLeftVariant,
+  fadeScaleVariant,
+  fadeVariant,
+  rightTofadeScaleVariant,
+  rightToLeftVariant,
 } from './motions'
