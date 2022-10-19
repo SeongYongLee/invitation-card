@@ -4,12 +4,12 @@ import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
 const StyledHeader = styled(motion.header)`
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: auto;
   height: 20px;
-  padding: 30px 0 0;
+  padding: 30px 16px 0;
   font-weight: 700;
   font-size: 22.5px;
   line-height: 27px;
@@ -23,7 +23,7 @@ const MainHeader = () => {
       variants={fadeScaleVariant}
     >
       <span>HOMEPARTY</span>
-      <span>사용자</span>
+      <span>USER</span>
     </StyledHeader>
   )
 }
