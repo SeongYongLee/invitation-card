@@ -9,7 +9,12 @@ import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions/motions'
 
 const Container = styled(motion.div)`
+  height: 100vh;
   text-align: center;
+`
+const Content = styled(motion.div)`
+  height: auto;
+  min-height: 100%;
 `
 const MainText = styled(motion.div)`
   padding: 100px 0;
@@ -21,20 +26,20 @@ const Home: NextPage = () => {
   }
 
   return (
-    <motion.div
+    <Container
       initial="initial"
       animate="animate"
       exit="exit"
       variants={fadeScaleVariant}
     >
       <MainHeader />
-      <Container variants={fadeScaleVariant}>
+      <Content variants={fadeScaleVariant}>
         <MainText variants={fadeScaleVariant}>초대장을 만들어보세요</MainText>
         <Button onClick={pushCreate}>홈파티 초대장 만들기</Button>
         <div>HOMEPARTY가 만든 초대장 2,434개</div>
-      </Container>
+      </Content>
       <MainFooter />
-    </motion.div>
+    </Container>
   )
 }
 

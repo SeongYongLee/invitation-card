@@ -6,7 +6,9 @@ import theme from 'styles/theme'
 
 const StyledFooter = styled(motion.footer)`
   background-color: ${theme.colors.gray};
-  width: 100%;
+  height: 106px;
+  position: relative;
+  transform: translateY(-100%);
 `
 
 const MainFooter = () => {
