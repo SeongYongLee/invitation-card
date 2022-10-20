@@ -6,7 +6,7 @@ import MainFooter from 'components/main/footer'
 import MainHeader from 'components/main/header'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
-import { fadeScaleVariant } from 'styles/motions/motions'
+import { fadeScaleVariant, rightToLeftVariant } from 'styles/motions/motions'
 import theme from 'styles/theme'
 
 const Container = styled(motion.div)`
@@ -99,24 +99,32 @@ const Home: NextPage = () => {
     >
       <Content variants={fadeScaleVariant}>
         <MainHeader />
-        <Banner>
+        <Banner variants={fadeScaleVariant}>
           <BannerText variants={fadeScaleVariant}>
             초대장을 만들어보세요
           </BannerText>
           <Button onClick={pushCreate}>홈파티 초대장 만들기</Button>
         </Banner>
-        <Guide>
-          <NumberOfInvitations>
+        <Guide variants={fadeScaleVariant}>
+          <NumberOfInvitations variants={fadeScaleVariant}>
             HOMEPARTY가 만든 초대장 2,434개
           </NumberOfInvitations>
-          <GuideText>초대장 이렇게 만들어보세요</GuideText>
-          <GuideCard>
-            <GuideCardInner>
-              <CardName>HOMEPARTY 릴리즈 기념</CardName>
-              <CardText>꿈틀희의 크리스마스파티</CardText>
-              <span>2022/10/10 17:30</span>
-              <span>댓글</span>
-              <span>14</span>
+          <GuideText variants={rightToLeftVariant}>
+            초대장 이렇게 만들어보세요
+          </GuideText>
+          <GuideCard variants={rightToLeftVariant}>
+            <GuideCardInner variants={rightToLeftVariant}>
+              <CardName variants={rightToLeftVariant}>
+                HOMEPARTY 릴리즈 기념
+              </CardName>
+              <CardText variants={rightToLeftVariant}>
+                꿈틀희의 크리스마스파티
+              </CardText>
+              <motion.div variants={rightToLeftVariant}>
+                <span>2022/10/10 17:30</span>
+                <span>댓글</span>
+                <span>14</span>
+              </motion.div>
             </GuideCardInner>
           </GuideCard>
         </Guide>

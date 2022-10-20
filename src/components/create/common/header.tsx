@@ -6,6 +6,7 @@ import theme from 'styles/theme'
 
 const StyledHeader = styled(motion.header)`
   background-color: ${theme.colors.red};
+  height: 50px;
 `
 
 export const CreateHeader = () => {

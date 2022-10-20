@@ -6,11 +6,11 @@ const defaultSetting = {
     x: 300,
   },
   defaultFadeOut: {
-    duration: 0.6,
+    duration: 1,
     x: 300,
   },
   ease: [0.6, -0.1, 0.01, 0.99],
-  staggerChildren: 0.1,
+  staggerChildren: 0.2,
 }
 const { defaultFadeIn, defaultFadeOut, ease, staggerChildren } = defaultSetting
 
