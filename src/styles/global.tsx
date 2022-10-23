@@ -126,6 +126,7 @@ const globalStyles = () => css`
     border-spacing: 0;
   }
 
+  // body scroll remove
   body {
     -ms-overflow-style: none;
   }

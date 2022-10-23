@@ -30,6 +30,7 @@ const BannerText = styled(motion.div)`
 `
 
 const Guide = styled(motion.div)`
+  font-family: 'Inter';
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -56,16 +57,26 @@ const GuideText = styled(motion.div)`
 `
 
 const GuideCard = styled(motion.div)`
-  height: 120px;
+  height: 100px;
   background-color: ${theme.colors.gray02};
   margin: 10px 15px;
+  padding: 10px;
 `
 
 const GuideCardInner = styled(motion.div)`
-  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `
 
-const CardName = styled(motion.div)`
+const CardTextWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`
+
+const CardTag = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,10 +90,24 @@ const CardName = styled(motion.div)`
   line-height: 16px;
 `
 
-const CardText = styled(motion.div)`
+const CardName = styled(motion.div)`
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+`
+
+const CardTimeWrapper = styled(motion.div)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 13px;
+  line-height: 19px;
+`
+
+const Comment = styled(motion.div)`
+  display: flex;
+  gap: 14px;
 `
 
 const Home: NextPage = () => {
@@ -114,17 +139,21 @@ const Home: NextPage = () => {
           </GuideText>
           <GuideCard variants={rightToLeftVariant}>
             <GuideCardInner variants={rightToLeftVariant}>
-              <CardName variants={rightToLeftVariant}>
-                HOMEPARTY 릴리즈 기념
-              </CardName>
-              <CardText variants={rightToLeftVariant}>
-                꿈틀희의 크리스마스파티
-              </CardText>
-              <motion.div variants={rightToLeftVariant}>
-                <span>2022/10/10 17:30</span>
-                <span>댓글</span>
-                <span>14</span>
-              </motion.div>
+              <CardTextWrapper>
+                <CardTag variants={rightToLeftVariant}>
+                  HOMEPARTY 릴리즈 기념
+                </CardTag>
+                <CardName variants={rightToLeftVariant}>
+                  꿈틀희의 크리스마스파티
+                </CardName>
+              </CardTextWrapper>
+              <CardTimeWrapper variants={rightToLeftVariant}>
+                <span>2022.10.10 17:30</span>
+                <Comment>
+                  <span>댓글</span>
+                  <span>14</span>
+                </Comment>
+              </CardTimeWrapper>
             </GuideCardInner>
           </GuideCard>
         </Guide>
