@@ -6,7 +6,7 @@ import MainFooter from 'components/main/footer'
 import MainHeader from 'components/main/header'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
-import { fadeScaleVariant, rightToLeftVariant } from 'styles/motions/motions'
+import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
 
 const Container = styled(motion.div)`
@@ -134,20 +134,20 @@ const Home: NextPage = () => {
           <NumberOfInvitations variants={fadeScaleVariant}>
             HOMEPARTY가 만든 초대장 2,434개
           </NumberOfInvitations>
-          <GuideText variants={rightToLeftVariant}>
+          <GuideText variants={fadeScaleVariant}>
             초대장 이렇게 만들어보세요
           </GuideText>
-          <GuideCard variants={rightToLeftVariant}>
-            <GuideCardInner variants={rightToLeftVariant}>
+          <GuideCard variants={fadeScaleVariant}>
+            <GuideCardInner variants={fadeScaleVariant}>
               <CardTextWrapper>
-                <CardTag variants={rightToLeftVariant}>
+                <CardTag variants={fadeScaleVariant}>
                   HOMEPARTY 릴리즈 기념
                 </CardTag>
-                <CardName variants={rightToLeftVariant}>
+                <CardName variants={fadeScaleVariant}>
                   꿈틀희의 크리스마스파티
                 </CardName>
               </CardTextWrapper>
-              <CardTimeWrapper variants={rightToLeftVariant}>
+              <CardTimeWrapper variants={fadeScaleVariant}>
                 <span>2022.10.10 17:30</span>
                 <Comment>
                   <span>댓글</span>

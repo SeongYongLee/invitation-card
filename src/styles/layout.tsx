@@ -12,7 +12,6 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
 export const MobileLayout = styled.main`
   position: relative;
   width: 360px;
-  max-width: 400px;
   margin: 0 auto;
   min-height: 100vh;
 `
@@ -20,7 +19,6 @@ export const MobileLayout = styled.main`
 const AnimatePresenceLayout = styled.div`
   height: 100%;
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
 `
