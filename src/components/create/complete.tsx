@@ -2,7 +2,7 @@ import router from 'next/router'
 import Button from 'components/common/button'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
-import { rightToLeftVariant } from 'styles/motions'
+import { fadeScaleVariant } from 'styles/motions'
 
 export const CreateComplete = () => {
   const pushHome = () => {
@@ -14,22 +14,22 @@ export const CreateComplete = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-      variants={rightToLeftVariant}
+      variants={fadeScaleVariant}
     >
       <Button onClick={pushHome}>홈으로 돌아가기</Button>
-      <motion.div variants={rightToLeftVariant}>
+      <motion.div variants={fadeScaleVariant}>
         초대장 생성 완료 :tada:
       </motion.div>
-      <motion.div variants={rightToLeftVariant}>
+      <motion.div variants={fadeScaleVariant}>
         초대장 생성 완료 :tada:
       </motion.div>
-      <motion.div variants={rightToLeftVariant}>
+      <motion.div variants={fadeScaleVariant}>
         초대장 생성 완료 :tada:
       </motion.div>
-      <motion.div variants={rightToLeftVariant}>
+      <motion.div variants={fadeScaleVariant}>
         초대장 생성 완료 :tada:
       </motion.div>
-      <motion.div variants={rightToLeftVariant}>
+      <motion.div variants={fadeScaleVariant}>
         초대장 생성 완료 :tada:
       </motion.div>
     </motion.div>

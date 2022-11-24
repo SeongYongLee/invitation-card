@@ -25,42 +25,13 @@ const fadeIn = {
 }
 
 const fadeScaleInitial = {
-  initial: {
-    scale: 1.3,
-    ...fadeOut,
-  },
+  scale: 0.7,
+  ...fadeOut,
 }
 
 const fadeScaleAnimate = {
-  animate: {
-    scale: 1,
-    ...fadeIn,
-  },
-}
-
-const fadeScaleExit = {
-  exit: {
-    scale: 0.7,
-    ...fadeOut,
-  },
-}
-
-const fadeLeftExit = {
-  exit: {
-    x: -defaultFadeOut.x,
-    ...fadeOut,
-  },
-}
-
-const fadeRightInitialAndAnimate = {
-  initial: {
-    x: defaultFadeIn.x,
-    ...fadeOut,
-  },
-  animate: {
-    x: 0,
-    ...fadeIn,
-  },
+  scale: 1,
+  ...fadeIn,
 }
 
 export const fadeVariant: Variants = {
@@ -70,23 +41,7 @@ export const fadeVariant: Variants = {
 }
 
 export const fadeScaleVariant: Variants = {
-  ...fadeScaleInitial,
-  ...fadeScaleAnimate,
-  ...fadeScaleExit,
-}
-
-export const fadeScaleToLeftVariant: Variants = {
-  ...fadeScaleInitial,
-  ...fadeScaleAnimate,
-  ...fadeLeftExit,
-}
-
-export const rightToLeftVariant: Variants = {
-  ...fadeRightInitialAndAnimate,
-  ...fadeLeftExit,
-}
-
-export const rightTofadeScaleVariant: Variants = {
-  ...fadeRightInitialAndAnimate,
-  ...fadeScaleExit,
+  initial: fadeScaleInitial,
+  animate: fadeScaleAnimate,
+  exit: fadeScaleInitial,
 }

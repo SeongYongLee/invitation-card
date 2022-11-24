@@ -1,7 +1,1 @@
-export {
-  fadeScaleToLeftVariant,
-  fadeScaleVariant,
-  fadeVariant,
-  rightTofadeScaleVariant,
-  rightToLeftVariant,
-} from './motions'
+export { fadeScaleVariant, fadeVariant } from './motions'
