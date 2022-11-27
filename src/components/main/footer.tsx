@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
 
-const StyledFooter = styled(motion.footer)`
+const StyledFooter = styled.footer`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -28,11 +27,7 @@ const INSTAGRAM = styled(motion.div)`
 
 const MainFooter = () => {
   return (
-    <StyledFooter
-      initial="hidden"
-      animate="visible"
-      variants={fadeScaleVariant}
-    >
+    <StyledFooter>
       <Logo>LOGO</Logo>
       <INSTAGRAM>인스타 링크</INSTAGRAM>
     </StyledFooter>
