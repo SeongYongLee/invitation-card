@@ -134,6 +134,7 @@ const globalStyles = () => css`
   ::-webkit-scrollbar {
     display: none;
   }
+  // END: body scroll remove
 `
 
 export function GlobalStyles() {
