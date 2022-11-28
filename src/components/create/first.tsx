@@ -1,21 +1,12 @@
-import Button from 'components/common/button'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
-interface Props {
-  nextStep: () => void
-}
+import { Title } from './common/title'
 
-export const CreateFirst = ({ nextStep }: Props) => {
+export const CreateFirst = () => {
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={fadeScaleVariant}
-    >
-      <Button onClick={nextStep}>다음 단계로 이동</Button>
-      <motion.div variants={fadeScaleVariant}>초대장 생성 페이지</motion.div>
+    <motion.div initial="initial" animate="animate" variants={fadeScaleVariant}>
+      <Title text={'초대장 스타일을'} secondText={'선택해 주세요'} />
       <motion.div variants={fadeScaleVariant}>첫번째 단계</motion.div>
       <motion.div variants={fadeScaleVariant}>첫번째 단계</motion.div>
       <motion.div variants={fadeScaleVariant}>첫번째 단계</motion.div>
