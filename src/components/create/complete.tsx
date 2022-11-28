@@ -1,22 +1,12 @@
-import router from 'next/router'
-import Button from 'components/common/button'
-import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
-export const CreateComplete = () => {
-  const pushHome = () => {
-    router.push(ROUTES.HOME)
-  }
+import { Title } from './common/title'
 
+export const CreateComplete = () => {
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={fadeScaleVariant}
-    >
-      <Button onClick={pushHome}>홈으로 돌아가기</Button>
+    <motion.div initial="initial" animate="animate" variants={fadeScaleVariant}>
+      <Title text={'초대장 생성 완료 :tada:'} />
       <motion.div variants={fadeScaleVariant}>
         초대장 생성 완료 :tada:
       </motion.div>
