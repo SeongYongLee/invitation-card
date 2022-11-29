@@ -1,6 +1,8 @@
 import React from 'react'
+import router from 'next/router'
 import styled from '@emotion/styled'
 import { Roboto_Serif } from '@next/font/google'
+import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
@@ -20,6 +22,10 @@ const StyledHeader = styled(motion.header)`
 `
 
 const MainHeader = () => {
+  const pushMyPage = () => {
+    router.push(ROUTES.MYPAGE)
+  }
+
   return (
     <StyledHeader
       initial="initial"
@@ -27,7 +33,7 @@ const MainHeader = () => {
       variants={fadeScaleVariant}
     >
       <span>Dear.</span>
-      <span>USER</span>
+      <span onClick={pushMyPage}>USER</span>
     </StyledHeader>
   )
 }
