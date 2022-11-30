@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { NextPage } from 'next'
 import router from 'next/router'
 import styled from '@emotion/styled'
+import Button from 'components/common/button'
 import { Title } from 'components/create/common/title'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -114,11 +116,16 @@ const ManagementText = styled(motion.div)`
 
 const TabWrapper = styled(motion.div)`
   display: flex;
+  justify-content: space-between;
+`
+
+const TabList = styled(motion.div)`
+  display: flex;
   align-items: center;
   gap: 12px;
 `
 
-const Tab = styled(motion.div)<{ active?: boolean }>`
+const Tab = styled(motion.div)<{ active?: 'active' | 'inactive' }>`
   display: flex;
   align-items: center;
 
@@ -132,7 +139,7 @@ const Tab = styled(motion.div)<{ active?: boolean }>`
 
   color: #2a2a2a;
 
-  opacity: ${({ active }) => (active ? 1 : 0.2)};
+  opacity: ${({ active }) => (active === 'active' ? 1 : 0.2)};
 `
 
 const ArchiveList = styled(motion.div)``
@@ -246,7 +253,63 @@ const ArchiveCommentIcon = styled(motion.div)`
 
 const ArchiveCommentCount = styled(motion.div)``
 
+const GuestBookList = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 13px 16px;
+`
+
+const GuestBook = styled(motion.div)`
+  width: 158px;
+  height: 182px;
+
+  background: #f4f4f4;
+`
+
+const GuestBookImage = styled(motion.div)`
+  margin: 14px;
+  width: 130px;
+  height: 130px;
+
+  background: #22ff22;
+`
+
+const GuestBookText = styled(motion.div)`
+  margin: 0 14px;
+  display: flex;
+  justify-content: space-between;
+`
+
+const GuestBookName = styled(motion.div)`
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 130%;
+
+  letter-spacing: -0.03em;
+
+  color: #000000;
+`
+
+const GuestBookDate = styled(motion.div)`
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 130%;
+
+  letter-spacing: -0.03em;
+
+  color: #000000;
+
+  opacity: 0.4;
+`
+
 const MyPage: NextPage = () => {
+  const [tab, setTab] = useState(0)
   const backPage = () => {
     router.back()
   }
@@ -264,7 +327,7 @@ const MyPage: NextPage = () => {
         </IconWrapper>
         <div>설정</div>
       </Header>
-      <Title text={'나의 랜선 홈'} horizontalMargin={0} />
+      <Title text={'나의 랜선 홈'} horizontalmargin={0} />
       <Profile variants={fadeScaleVariant}>
         <User variants={fadeScaleVariant}>
           <Icon />
@@ -276,44 +339,97 @@ const MyPage: NextPage = () => {
             <Email>dvsvp@kakao.com</Email>
           </Detail>
         </User>
-        <ManageDetail variants={fadeScaleVariant}>
-          <div>예정된 홈파티가 없어요</div>
-          <ManagementText>{'초대장 관리 >'}</ManagementText>
-        </ManageDetail>
+        {tab === 1 && (
+          <ManageDetail variants={fadeScaleVariant}>
+            <div>예정된 홈파티가 없어요</div>
+            <ManagementText>{'초대장 관리 >'}</ManagementText>
+          </ManageDetail>
+        )}
       </Profile>
       <TabWrapper>
-        <Tab active>아카이브</Tab>
-        <Tab>방명록</Tab>
+        <TabList>
+          <Tab
+            onClick={() => setTab(0)}
+            active={tab === 0 ? 'active' : 'inactive'}
+          >
+            아카이브
+          </Tab>
+          <Tab
+            onClick={() => setTab(1)}
+            active={tab === 1 ? 'active' : 'inactive'}
+          >
+            방명록
+          </Tab>
+        </TabList>
+        {tab === 1 && (
+          <Button height={36} width={100}>
+            작성하기
+          </Button>
+        )}
       </TabWrapper>
-      <ArchiveList>
-        <Archive variants={fadeScaleVariant}>
-          <ArchiveLetter variants={fadeScaleVariant}>
-            <ArchiveLetterTitle>
-              <ArchiveLetterIcon />
-              꿈틀희네 러브러브 하우스
-            </ArchiveLetterTitle>
-            <ArchiveLetterArrayIcon />
-          </ArchiveLetter>
-          <ArchiveImage variants={fadeScaleVariant} />
-          <ArchiveTitle variants={fadeScaleVariant}>
-            초대장팀과 함께한 꿈틀희 홈파티
-          </ArchiveTitle>
-          <ArchiveDate variants={fadeScaleVariant}>
-            2022.10.10. 17:30
-          </ArchiveDate>
-          <ArchiveActive>
-            <ArchiveClap variants={fadeScaleVariant}>
-              <ArchiveClapIcon />
-              <ArchiveClapCount>14</ArchiveClapCount>
-            </ArchiveClap>
-            <ArchiveComment variants={fadeScaleVariant}>
-              <ArchiveCommentIcon />
-              <ArchiveCommentCount>7</ArchiveCommentCount>
-            </ArchiveComment>
-          </ArchiveActive>
-        </Archive>
-        <Archive></Archive>
-      </ArchiveList>
+      {tab === 0 && (
+        <ArchiveList variants={fadeScaleVariant}>
+          <Archive variants={fadeScaleVariant}>
+            <ArchiveLetter variants={fadeScaleVariant}>
+              <ArchiveLetterTitle>
+                <ArchiveLetterIcon />
+                꿈틀희네 러브러브 하우스
+              </ArchiveLetterTitle>
+              <ArchiveLetterArrayIcon />
+            </ArchiveLetter>
+            <ArchiveImage variants={fadeScaleVariant} />
+            <ArchiveTitle variants={fadeScaleVariant}>
+              초대장팀과 함께한 꿈틀희 홈파티
+            </ArchiveTitle>
+            <ArchiveDate variants={fadeScaleVariant}>
+              2022.10.10. 17:30
+            </ArchiveDate>
+            <ArchiveActive>
+              <ArchiveClap variants={fadeScaleVariant}>
+                <ArchiveClapIcon />
+                <ArchiveClapCount>14</ArchiveClapCount>
+              </ArchiveClap>
+              <ArchiveComment variants={fadeScaleVariant}>
+                <ArchiveCommentIcon />
+                <ArchiveCommentCount>7</ArchiveCommentCount>
+              </ArchiveComment>
+            </ArchiveActive>
+          </Archive>
+          <Archive></Archive>
+        </ArchiveList>
+      )}
+      {tab === 1 && (
+        <GuestBookList variants={fadeScaleVariant}>
+          <GuestBook variants={fadeScaleVariant}>
+            <GuestBookImage variants={fadeScaleVariant} />
+            <GuestBookText>
+              <GuestBookName>수진우주</GuestBookName>
+              <GuestBookDate>1일 전</GuestBookDate>
+            </GuestBookText>
+          </GuestBook>
+          <GuestBook variants={fadeScaleVariant}>
+            <GuestBookImage variants={fadeScaleVariant} />
+            <GuestBookText>
+              <GuestBookName>익명12</GuestBookName>
+              <GuestBookDate>1일 전</GuestBookDate>
+            </GuestBookText>
+          </GuestBook>
+          <GuestBook variants={fadeScaleVariant}>
+            <GuestBookImage variants={fadeScaleVariant} />
+            <GuestBookText>
+              <GuestBookName>종남</GuestBookName>
+              <GuestBookDate>1주 전</GuestBookDate>
+            </GuestBookText>
+          </GuestBook>
+          <GuestBook variants={fadeScaleVariant}>
+            <GuestBookImage variants={fadeScaleVariant} />
+            <GuestBookText>
+              <GuestBookName>꿈틀꿈틀</GuestBookName>
+              <GuestBookDate>3주 전</GuestBookDate>
+            </GuestBookText>
+          </GuestBook>
+        </GuestBookList>
+      )}
     </Content>
   )
 }
