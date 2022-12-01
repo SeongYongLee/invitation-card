@@ -105,9 +105,15 @@ const Home: NextPage = () => {
             <InvitationCard />
             <InvitationCard />
             <InvitationCard />
+            <InvitationCard />
+            <InvitationCard />
+            <InvitationCard />
+            <InvitationCard />
           </InvitationCardWrapper>
           <GuideText variants={fadeScaleVariant}>최근 홈파티</GuideText>
           <HomePartyCardWrapper>
+            <HomePartyCard />
+            <HomePartyCard />
             <HomePartyCard />
             <HomePartyCard />
             <NumberOfInvitations variants={fadeScaleVariant}>
