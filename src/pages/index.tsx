@@ -25,7 +25,7 @@ const Content = styled(motion.div)`
 `
 
 const Banner = styled(motion.div)`
-  padding: 100px 0 0;
+  padding: 100px 0 30px;
   height: auto;
   text-align: center;
   white-space: pre-wrap;
@@ -33,6 +33,10 @@ const Banner = styled(motion.div)`
   font-weight: 500;
   font-size: 15px;
   line-height: 130%;
+
+  @media screen and (max-height: 700px) {
+    display: none;
+  }
 `
 
 const Guide = styled(motion.div)`
@@ -42,9 +46,16 @@ const Guide = styled(motion.div)`
   width: 100%;
   overflow-y: scroll;
   background-color: ${theme.colors.gray00};
-  @media screen and (max-height: 950px) {
-    height: calc(100% - 200px);
+  height: calc(100% - 400px);
+
+  @media screen and (max-height: 700px) {
+    top: 150px;
+    height: 100%;
   }
+`
+
+const ButtonWrapper = styled(motion.div)`
+  padding: 10px 16px;
 `
 
 const GuideText = styled(motion.div)`
@@ -52,7 +63,7 @@ const GuideText = styled(motion.div)`
   font-weight: 800;
   font-size: 22px;
   line-height: 130%;
-  margin: 40px 10px 10px;
+  margin: 10px 16px;
 `
 
 const InvitationCardWrapper = styled(motion.div)`
@@ -97,8 +108,10 @@ const Home: NextPage = () => {
         <Banner variants={fadeScaleVariant}>
           {'홈파티 초대장으로 소중한 사람을\n 초대해보세요'}
         </Banner>
-        <Guide variants={fadeScaleVariant}>
+        <ButtonWrapper>
           <Button onClick={pushCreate}>홈파티 초대장 만들기</Button>
+        </ButtonWrapper>
+        <Guide variants={fadeScaleVariant}>
           <GuideText variants={fadeScaleVariant}>인기 초대장</GuideText>
           <InvitationCardWrapper>
             <InvitationCard />

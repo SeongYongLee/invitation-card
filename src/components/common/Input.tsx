@@ -10,7 +10,7 @@ const Wrapper = styled(motion.div)`
   align-items: center;
 `
 
-const StyledButton = styled(motion.button)<{ width?: number; height?: number }>`
+const StyledInput = styled(motion.input)<{ width?: number; height?: number }>`
   background-color: ${theme.colors.black};
   border-radius: 12px;
   width: ${({ width }) => (width ? `${width}px` : '100%')};
@@ -25,21 +25,22 @@ const StyledButton = styled(motion.button)<{ width?: number; height?: number }>`
 
 export interface Props extends HTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
+  placeholder?: string
   width?: number
   height?: number
 }
 
-export default function Button({ children, onClick, width, height }: Props) {
+export default function Input({ children, placeholder, width, height }: Props) {
   return (
     <Wrapper initial="initial" animate="animate" variants={fadeScaleVariant}>
-      <StyledButton
+      <StyledInput
         variants={fadeScaleVariant}
+        placeholder={placeholder}
         width={width}
         height={height}
-        onClick={onClick}
       >
         {children}
-      </StyledButton>
+      </StyledInput>
     </Wrapper>
   )
 }

@@ -15,7 +15,9 @@ interface Props {
 export const CreateFooter = ({ text, nextStep }: Props) => {
   return (
     <StyledFooter>
-      <Button onClick={nextStep}>{text}</Button>
+      <Button onClick={nextStep} height={50}>
+        {text}
+      </Button>
     </StyledFooter>
   )
 }
