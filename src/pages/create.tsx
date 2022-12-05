@@ -23,6 +23,7 @@ const Container = styled(motion.div)`
 
 const Content = styled(motion.div)`
   height: 100vh;
+  margin: 17px;
 `
 
 const Create: NextPage = () => {

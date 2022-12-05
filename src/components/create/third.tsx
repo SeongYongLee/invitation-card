@@ -1,3 +1,4 @@
+import Input from 'components/common/Input'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
@@ -7,14 +8,9 @@ export const CreateThird = () => {
   return (
     <motion.div initial="initial" animate="animate" variants={fadeScaleVariant}>
       <Title text={'홈파티 제목을 지어주세요'} />
-      <motion.div variants={fadeScaleVariant}>세번째 단계</motion.div>
-      <motion.div variants={fadeScaleVariant}>세번째 단계</motion.div>
-      <motion.div variants={fadeScaleVariant}>세번째 단계</motion.div>
-      <motion.div variants={fadeScaleVariant}>세번째 단계</motion.div>
-      <Title text={'장소는 어디인가요?'} />
-      <motion.div variants={fadeScaleVariant}>세번째 단계</motion.div>
-      <motion.div variants={fadeScaleVariant}>세번째 단계</motion.div>
-      <motion.div variants={fadeScaleVariant}>세번째 단계</motion.div>
+      <Input placeholder="예시) 불금의 파자마 파티" />
+      <Title text={'장소는 어디인가요?'} />{' '}
+      <Input placeholder="예시) 불금의 파자마 파티" />
     </motion.div>
   )
 }
