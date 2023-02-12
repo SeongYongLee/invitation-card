@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -10,8 +11,12 @@ const Wrapper = styled(motion.div)`
   justify-content: space-between;
   height: 100px;
   background-color: ${theme.colors.white};
-  margin: 10px 15px;
-  padding: 10px;
+  margin: 10px 25px;
+  padding: 15px 20px;
+  border-radius: 12px;
+
+  font-family: 'Pretendard';
+  font-style: normal;
 `
 
 const CardMainWrapper = styled(motion.div)`
@@ -20,33 +25,38 @@ const CardMainWrapper = styled(motion.div)`
   gap: 8px;
 `
 
+const CardTagWrapper = styled(motion.div)`
+  display: flex;
+  justify-content: start;
+  gap: 6px;
+`
+
 const CardTag = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: fit-content;
-  height: 30px;
-  padding: 0 10px;
-  background: #ffffff;
+  height: 25px;
+  padding: 0px 10px;
+  background: rgba(108, 99, 129, 0.1);
+  border-radius: 16px;
 
-  border: 1px solid #4d7af6;
-  border-radius: 4px;
   font-size: 13px;
   line-height: 16px;
 
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 130%;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+
+  color: #5007f6;
 `
 
 const CardName = styled(motion.div)`
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 130%;
 
   letter-spacing: -0.03em;
@@ -64,8 +74,6 @@ const CardSubWrapper = styled(motion.div)`
 `
 
 const CardTime = styled(motion.div)`
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 130%;
@@ -73,15 +81,44 @@ const CardTime = styled(motion.div)`
   color: #696969;
 `
 
+const Reaction = styled(motion.div)`
+  display: flex;
+  gap: 14px;
+`
+
+const ReactionType = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`
+
 const HomePartyCard = () => {
   return (
     <Wrapper variants={fadeScaleVariant}>
       <CardMainWrapper>
-        <CardTag variants={fadeScaleVariant}>D-7</CardTag>
+        <CardTagWrapper variants={fadeScaleVariant}>
+          <CardTag variants={fadeScaleVariant}>D-7</CardTag>
+          <CardTag variants={fadeScaleVariant}>집들이</CardTag>
+        </CardTagWrapper>
         <CardName variants={fadeScaleVariant}>꿈틀희의 크리스마스파티</CardName>
       </CardMainWrapper>
       <CardSubWrapper>
-        <CardTime variants={fadeScaleVariant}>2022.10.10 17:30</CardTime>
+        <CardTime variants={fadeScaleVariant}>12월 28일</CardTime>
+        <Reaction>
+          <ReactionType>
+            <Image src="/images/heart.svg" alt="heart" width={24} height={24} />
+            <div>14</div>
+          </ReactionType>
+          <ReactionType>
+            <Image
+              src="/images/comment.svg"
+              alt="comment"
+              width={18}
+              height={18}
+            />
+            <div>7</div>
+          </ReactionType>
+        </Reaction>
       </CardSubWrapper>
     </Wrapper>
   )

@@ -5,8 +5,9 @@ const theme = {
     black: '#2B2B2B',
     white: '#FFFFFF',
     gray00: '#F7F8FA',
-    gray01: '#D9D9D9',
-    gray02: '#F2F2F2',
+    gray01: '#F2F2F2',
+    gray02: '#F0F4FB',
+    gray03: '#D9D9D9',
   },
 }
 
