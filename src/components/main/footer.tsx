@@ -1,35 +1,56 @@
 import React from 'react'
+import Image from 'next/image'
 import styled from '@emotion/styled'
+import Title from 'components/common/title'
 import { motion } from 'framer-motion'
-import theme from 'styles/theme'
+import { fadeScaleVariant } from 'styles/motions'
 
-const StyledFooter = styled.footer`
+const StyledFooter = styled(motion.footer)`
   position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: ${theme.colors.gray01};
-  height: 106px;
+  background: #242424;
+  height: 133px;
   transform: translateY(-100%);
+  padding: 10px 25px;
 `
-const Logo = styled(motion.div)`
-  margin: 23px 20px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
+
+const Address = styled(motion.div)`
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+
+  text-align: center;
+  letter-spacing: -0.03em;
+
+  color: #ffffff;
+
+  opacity: 0.6;
 `
-const INSTAGRAM = styled(motion.div)`
-  margin: 23px 20px;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 16px;
-  text-decoration-line: underline;
+
+const ImageWrapper = styled(motion.div)`
+  margin-top: 20px;
 `
 
 const MainFooter = () => {
   return (
-    <StyledFooter>
-      <Logo>LOGO</Logo>
-      <INSTAGRAM>인스타 링크</INSTAGRAM>
+    <StyledFooter initial="initial" animate="animate" exit="exit">
+      <div>
+        <Title />
+        <Address variants={fadeScaleVariant}>
+          관악구 신림동길 무한 행복 하우스
+        </Address>
+      </div>
+      <ImageWrapper variants={fadeScaleVariant}>
+        <Image
+          src="/images/instagram.svg"
+          alt="instagram"
+          width={40}
+          height={40}
+        />
+      </ImageWrapper>
     </StyledFooter>
   )
 }

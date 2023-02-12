@@ -5,6 +5,7 @@ import { Inter } from '@next/font/google'
 import Button from 'components/common/button'
 import HomePartyCard from 'components/main/card/homeparty'
 import InvitationCard from 'components/main/card/invitation'
+import InvitationTypeCard from 'components/main/card/invitationtype'
 import MainFooter from 'components/main/footer'
 import MainHeader from 'components/main/header'
 import { ROUTES } from 'constants/routes'
@@ -15,7 +16,7 @@ import theme from 'styles/theme'
 const inter = Inter({})
 
 const Container = styled(motion.div)`
-  background-color: ${theme.colors.gray00};
+  background-color: ${theme.colors.gray02};
   height: 100vh;
 `
 
@@ -24,38 +25,49 @@ const Content = styled(motion.div)`
   min-height: 100%;
 `
 
-const Banner = styled(motion.div)`
-  padding: 100px 0 30px;
-  height: auto;
-  text-align: center;
-  white-space: pre-wrap;
-  font-family: 'Pretendard';
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 130%;
-
-  @media screen and (max-height: 700px) {
-    display: none;
-  }
-`
-
 const Guide = styled(motion.div)`
   font-family: ${inter.style.fontFamily};
   position: absolute;
-  bottom: 106px;
+  bottom: 153px;
+  height: calc(100vh - 153px - 120px);
   width: 100%;
   overflow-y: scroll;
-  background-color: ${theme.colors.gray00};
-  height: calc(100% - 400px);
-
-  @media screen and (max-height: 700px) {
-    top: 150px;
-    height: 100%;
-  }
 `
 
-const ButtonWrapper = styled(motion.div)`
-  padding: 10px 16px;
+const PurpleArea = styled(motion.div)`
+  position: absolute;
+  height: 339px;
+  width: 100%;
+  background-color: #252442;
+`
+
+const GuideContent = styled(motion.div)`
+  position: absolute;
+  height: 210px;
+  z-index: 1;
+  width: 100%;
+`
+
+const CreateArea = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 330px;
+  margin: 0 25px;
+  padding: 35px 20px;
+  background-color: ${theme.colors.white};
+  border-radius: 12px;
+
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 130%;
+
+  letter-spacing: -0.03em;
+
+  color: #363636;
 `
 
 const GuideText = styled(motion.div)`
@@ -63,7 +75,22 @@ const GuideText = styled(motion.div)`
   font-weight: 800;
   font-size: 22px;
   line-height: 130%;
-  margin: 10px 16px;
+  margin: 25px 25px 15px;
+`
+
+const HomePartyCardWrapper = styled(motion.div)``
+
+const InvitationCardTypeWrapper = styled(motion.div)`
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  div:first-of-type {
+    margin-left: 25px;
+  }
+  div:last-of-type {
+    margin-right: 25px;
+  }
 `
 
 const InvitationCardWrapper = styled(motion.div)`
@@ -71,24 +98,18 @@ const InvitationCardWrapper = styled(motion.div)`
   gap: 8px;
   flex-wrap: nowrap;
   overflow-x: auto;
+  margin: 20px 0;
+
   div:first-of-type {
-    margin-left: 15px;
+    margin-left: 25px;
   }
   div:last-of-type {
-    margin-right: 15px;
+    margin-right: 25px;
   }
 `
 
-const HomePartyCardWrapper = styled(motion.div)``
-
-const NumberOfInvitations = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 25px 10px;
-  height: 39px;
-  border: 1px solid #c8c8c8;
-  border-radius: 12px;
+const Divider = styled(motion.div)`
+  height: 60px;
 `
 
 const Home: NextPage = () => {
@@ -103,36 +124,52 @@ const Home: NextPage = () => {
       exit="exit"
       variants={fadeScaleVariant}
     >
-      <Content variants={fadeScaleVariant}>
+      <Content>
         <MainHeader />
-        <Banner variants={fadeScaleVariant}>
-          {'홈파티 초대장으로 소중한 사람을\n 초대해보세요'}
-        </Banner>
-        <ButtonWrapper>
-          <Button onClick={pushCreate}>홈파티 초대장 만들기</Button>
-        </ButtonWrapper>
-        <Guide variants={fadeScaleVariant}>
-          <GuideText variants={fadeScaleVariant}>인기 초대장</GuideText>
-          <InvitationCardWrapper>
-            <InvitationCard />
-            <InvitationCard />
-            <InvitationCard />
-            <InvitationCard />
-            <InvitationCard />
-            <InvitationCard />
-            <InvitationCard />
-            <InvitationCard />
-          </InvitationCardWrapper>
-          <GuideText variants={fadeScaleVariant}>최근 홈파티</GuideText>
-          <HomePartyCardWrapper>
-            <HomePartyCard />
-            <HomePartyCard />
-            <HomePartyCard />
-            <HomePartyCard />
-            <NumberOfInvitations variants={fadeScaleVariant}>
-              2,434개의 초대장이 만들어졌어요
-            </NumberOfInvitations>
-          </HomePartyCardWrapper>
+        <Guide>
+          <PurpleArea />
+          <GuideContent variants={fadeScaleVariant}>
+            <CreateArea variants={fadeScaleVariant}>
+              <div>
+                <div>소중한</div>
+                <div>사람을 위한</div>
+                <div>초대장을 만들어 보세요!</div>
+              </div>
+              <Button onClick={pushCreate} height={44}>
+                초대장 만들기
+              </Button>
+            </CreateArea>
+            <GuideText variants={fadeScaleVariant}>다가오는 파티</GuideText>
+            <HomePartyCardWrapper variants={fadeScaleVariant}>
+              <HomePartyCard />
+              <HomePartyCard />
+              <HomePartyCard />
+              <HomePartyCard />
+            </HomePartyCardWrapper>
+            <GuideText variants={fadeScaleVariant}>
+              이런 초대장은 어때요?
+            </GuideText>
+            <InvitationCardTypeWrapper variants={fadeScaleVariant}>
+              <InvitationTypeCard />
+              <InvitationTypeCard />
+              <InvitationTypeCard />
+              <InvitationTypeCard />
+              <InvitationTypeCard />
+              <InvitationTypeCard />
+              <InvitationTypeCard />
+            </InvitationCardTypeWrapper>
+            <InvitationCardWrapper variants={fadeScaleVariant}>
+              <InvitationCard />
+              <InvitationCard />
+              <InvitationCard />
+              <InvitationCard />
+              <InvitationCard />
+              <InvitationCard />
+              <InvitationCard />
+              <InvitationCard />
+            </InvitationCardWrapper>
+            <Divider />
+          </GuideContent>
         </Guide>
       </Content>
       <MainFooter />

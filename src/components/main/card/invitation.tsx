@@ -9,6 +9,7 @@ const Wrapper = styled(motion.div)`
   height: 212px;
   width: 134px;
   background-color: ${theme.colors.black};
+  border-radius: 17px;
 `
 
 const InvitationCard = () => <Wrapper variants={fadeScaleVariant} />
