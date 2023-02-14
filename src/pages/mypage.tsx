@@ -1,11 +1,7 @@
-import { useState } from 'react'
 import { NextPage } from 'next'
 import router from 'next/router'
 import styled from '@emotion/styled'
-import Button from 'components/common/button'
 import { Title } from 'components/create/common/title'
-import Archive from 'components/mypage/archive'
-import GuestBook from 'components/mypage/guestbook'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -117,50 +113,7 @@ const ManagementText = styled(motion.div)`
   font-weight: 700;
 `
 
-const TabWrapper = styled(motion.div)`
-  display: flex;
-  justify-content: space-between;
-`
-
-const TabList = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-`
-
-const Tab = styled(motion.div)<{ active?: 'active' | 'inactive' }>`
-  display: flex;
-  align-items: center;
-
-  margin: 12px 0;
-
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 22px;
-  line-height: 130%;
-
-  color: #2a2a2a;
-
-  opacity: ${({ active }) => (active === 'active' ? 1 : 0.2)};
-`
-
-const ArchiveList = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-`
-
-const GuestBookList = styled(motion.div)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  gap: 13px 16px;
-`
-
 const MyPage: NextPage = () => {
-  const [tab, setTab] = useState(0)
   const pushHome = () => {
     router.push(ROUTES.HOME)
   }
@@ -193,52 +146,11 @@ const MyPage: NextPage = () => {
             <Email>dvsvp@kakao.com</Email>
           </Detail>
         </User>
-        {tab === 0 && (
-          <ManageDetail variants={fadeScaleVariant}>
-            <div>예정된 홈파티가 없어요</div>
-            <ManagementText>{'초대장 관리 >'}</ManagementText>
-          </ManageDetail>
-        )}
+        <ManageDetail variants={fadeScaleVariant}>
+          <div>예정된 홈파티가 없어요</div>
+          <ManagementText>{'초대장 관리 >'}</ManagementText>
+        </ManageDetail>
       </Profile>
-      <TabWrapper>
-        <TabList>
-          <Tab
-            onClick={() => setTab(0)}
-            active={tab === 0 ? 'active' : 'inactive'}
-          >
-            아카이브
-          </Tab>
-          <Tab
-            onClick={() => setTab(1)}
-            active={tab === 1 ? 'active' : 'inactive'}
-          >
-            방명록
-          </Tab>
-        </TabList>
-        {tab === 1 && (
-          <Button height={36} width={100}>
-            작성하기
-          </Button>
-        )}
-      </TabWrapper>
-      {tab === 0 && (
-        <ArchiveList variants={fadeScaleVariant}>
-          <Archive />
-          <Archive />
-        </ArchiveList>
-      )}
-      {tab === 1 && (
-        <GuestBookList variants={fadeScaleVariant}>
-          <GuestBook />
-          <GuestBook />
-          <GuestBook />
-          <GuestBook />
-          <GuestBook />
-          <GuestBook />
-          <GuestBook />
-          <GuestBook />
-        </GuestBookList>
-      )}
     </Content>
   )
 }
