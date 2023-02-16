@@ -42,7 +42,7 @@ const StyledRadio = styled(motion.input)<{ width?: number; height?: number }>`
   appearance: none;
 
   :checked {
-    background-color: ${theme.colors.black};
+    background-color: ${theme.colors.gray02};
   }
 `
 

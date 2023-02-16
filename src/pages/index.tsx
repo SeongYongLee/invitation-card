@@ -16,8 +16,16 @@ import theme from 'styles/theme'
 const inter = Inter({})
 
 const Container = styled(motion.div)`
-  background-color: ${theme.colors.gray02};
+  background-color: ${theme.colors.bg00};
   height: 100vh;
+`
+
+const PurpleArea = styled(motion.div)`
+  position: absolute;
+  height: 309px;
+  width: 100%;
+  top: 0;
+  background-color: ${theme.colors.tertiary};
 `
 
 const Content = styled(motion.div)`
@@ -34,17 +42,7 @@ const Guide = styled(motion.div)`
   overflow-y: scroll;
 `
 
-const PurpleArea = styled(motion.div)`
-  position: absolute;
-  height: 339px;
-  width: 100%;
-  background-color: #252442;
-`
-
 const GuideContent = styled(motion.div)`
-  position: absolute;
-  height: 210px;
-  z-index: 1;
   width: 100%;
 `
 
@@ -67,7 +65,7 @@ const CreateArea = styled(motion.div)`
 
   letter-spacing: -0.03em;
 
-  color: #363636;
+  color: ${theme.colors.gray00};
 `
 
 const GuideText = styled(motion.div)`
@@ -124,10 +122,10 @@ const Home: NextPage = () => {
       exit="exit"
       variants={fadeScaleVariant}
     >
+      <PurpleArea />
       <Content>
         <MainHeader />
         <Guide>
-          <PurpleArea />
           <GuideContent variants={fadeScaleVariant}>
             <CreateArea variants={fadeScaleVariant}>
               <div>

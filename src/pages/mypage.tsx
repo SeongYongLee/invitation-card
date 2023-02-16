@@ -5,9 +5,25 @@ import { Title } from 'components/create/common/title'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
+
+const Container = styled(motion.div)`
+  background-color: ${theme.colors.bg00};
+  color: ${theme.colors.white};
+  height: 100vh;
+`
+
+const PurpleArea = styled(motion.div)`
+  position: absolute;
+  height: 309px;
+  width: 100%;
+  top: 0;
+  background-color: ${theme.colors.tertiary};
+`
 
 const Content = styled(motion.div)`
-  margin: 16px;
+  position: relative;
+  padding: 16px;
 `
 
 const Header = styled(motion.div)`
@@ -28,49 +44,6 @@ const IconWrapper = styled(motion.div)`
   height: 48px;
 `
 
-const Profile = styled(motion.div)`
-  margin: 10px 0;
-  padding: 16px;
-  background: #f7f8fa;
-  border-radius: 12px;
-`
-
-const Icon = styled(motion.div)`
-  min-width: 64px;
-  height: 64px;
-  background: #77aa77;
-  border-radius: 32px;
-`
-
-const Detail = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  flex-direction: column;
-  gap: 4px;
-
-  margin: 0 10px;
-
-  width: 100%;
-`
-
-const User = styled(motion.div)`
-  display: flex;
-`
-
-const NameWrapper = styled(motion.div)`
-  display: flex;
-  justify-content: space-between;
-
-  width: 100%;
-
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
-`
-
 const Email = styled(motion.div)`
   font-family: 'Inter';
   font-style: normal;
@@ -78,14 +51,8 @@ const Email = styled(motion.div)`
   font-size: 13px;
   line-height: 16px;
 
-  color: #000000;
+  color: ${theme.colors.black};
   opacity: 0.4;
-`
-
-const EditIcon = styled(motion.div)`
-  width: 16px;
-  height: 16px;
-  background: #77aa77;
 `
 
 const ManageDetail = styled(motion.div)`
@@ -95,7 +62,7 @@ const ManageDetail = styled(motion.div)`
 
   margin: 10px 0 0;
   padding: 8.5px 12px;
-  background: #000000;
+  background: ${theme.colors.ctamypage};
   border-radius: 12px;
 
   font-family: 'Pretendard';
@@ -106,7 +73,7 @@ const ManageDetail = styled(motion.div)`
 
   letter-spacing: -0.03em;
 
-  color: #ffffff;
+  color: ${theme.colors.black};
 `
 
 const ManagementText = styled(motion.div)`
@@ -122,36 +89,31 @@ const MyPage: NextPage = () => {
   }
 
   return (
-    <Content
+    <Container
       initial="initial"
       animate="animate"
       exit="exit"
       variants={fadeScaleVariant}
     >
-      <Header>
-        <IconWrapper onClick={pushHome} variants={fadeScaleVariant}>
-          {'<'}
-        </IconWrapper>
-        <div onClick={pushSetting}>설정</div>
-      </Header>
-      <Title text={'나의 랜선 홈'} horizontalmargin={0} />
-      <Profile variants={fadeScaleVariant}>
-        <User variants={fadeScaleVariant}>
-          <Icon />
-          <Detail>
-            <NameWrapper>
-              꿈틀희
-              <EditIcon />
-            </NameWrapper>
-            <Email>dvsvp@kakao.com</Email>
-          </Detail>
-        </User>
+      <PurpleArea />
+      <Content>
+        <Header>
+          <IconWrapper onClick={pushHome} variants={fadeScaleVariant}>
+            {'<'}
+          </IconWrapper>
+          <div onClick={pushSetting}>설정</div>
+        </Header>
+        <Title
+          text={'꿈틀희의'}
+          secondText={'파티 공간'}
+          horizontalmargin={0}
+        />
         <ManageDetail variants={fadeScaleVariant}>
-          <div>예정된 홈파티가 없어요</div>
-          <ManagementText>{'초대장 관리 >'}</ManagementText>
+          <Email>www.homeparty/Gumtelhee</Email>
+          <ManagementText>{'프로필 수정 >'}</ManagementText>
         </ManageDetail>
-      </Profile>
-    </Content>
+      </Content>
+    </Container>
   )
 }
 

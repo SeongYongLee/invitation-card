@@ -51,7 +51,7 @@ const CardTag = styled(motion.div)`
   display: flex;
   align-items: center;
 
-  color: #5007f6;
+  color: ${theme.colors.primary};
 `
 
 const CardName = styled(motion.div)`
@@ -61,7 +61,7 @@ const CardName = styled(motion.div)`
 
   letter-spacing: -0.03em;
 
-  color: #2d2d2d;
+  color: ${theme.colors.gray00};
 `
 
 const CardSubWrapper = styled(motion.div)`
@@ -78,7 +78,7 @@ const CardTime = styled(motion.div)`
   font-size: 16px;
   line-height: 130%;
 
-  color: #696969;
+  color: ${theme.colors.graytime};
 `
 
 const Reaction = styled(motion.div)`

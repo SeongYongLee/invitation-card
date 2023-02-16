@@ -8,7 +8,7 @@ const Wrapper = styled(motion.div)`
   flex: 0 0 auto;
   height: 212px;
   width: 134px;
-  background-color: ${theme.colors.black};
+  background-color: ${theme.colors.gray00};
   border-radius: 17px;
 `
 

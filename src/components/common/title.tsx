@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 const TitleWrapper = styled(motion.div)`
   margin-top: 20px;
@@ -12,13 +13,13 @@ const TitleWrapper = styled(motion.div)`
 
   letter-spacing: -0.03em;
 
-  color: #ffffff;
+  color: ${theme.colors.white};
 `
 
 const Text = styled(motion.span)``
 
 const TitleDot = styled(motion.span)`
-  color: #5007f6;
+  color: ${theme.colors.primary};
 `
 
 const Title = () => {
