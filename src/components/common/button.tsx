@@ -11,7 +11,7 @@ const Wrapper = styled(motion.div)`
 `
 
 const StyledButton = styled(motion.button)<{ width?: number; height?: number }>`
-  background-color: ${theme.colors.black};
+  background-color: ${theme.colors.ctasp};
   border-radius: 12px;
   width: ${({ width }) => (width ? `${width}px` : '100%')};
   height: ${({ height }) => (height ? `${height}px` : '50px')};

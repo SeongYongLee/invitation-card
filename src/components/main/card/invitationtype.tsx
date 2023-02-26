@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 const Wrapper = styled(motion.div)`
   display: flex;
@@ -11,8 +12,8 @@ const Wrapper = styled(motion.div)`
   min-width: 99px;
   min-height: 34px;
 
-  background: #323232;
-  border: 1px solid #323232;
+  background: ${theme.colors.primary};
+  border: 1px solid ${theme.colors.primary};
   border-radius: 40px;
   color: white;
 

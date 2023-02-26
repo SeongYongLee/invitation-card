@@ -4,12 +4,13 @@ import styled from '@emotion/styled'
 import Title from 'components/common/title'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 const StyledFooter = styled(motion.footer)`
   position: relative;
   display: flex;
   justify-content: space-between;
-  background: #242424;
+  background: ${theme.colors.tertiary};
   height: 133px;
   transform: translateY(-100%);
   padding: 10px 25px;
@@ -25,7 +26,7 @@ const Address = styled(motion.div)`
   text-align: center;
   letter-spacing: -0.03em;
 
-  color: #ffffff;
+  color: ${theme.colors.white};
 
   opacity: 0.6;
 `

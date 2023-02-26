@@ -3,6 +3,7 @@ import router from 'next/router'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 const IconWrapper = styled(motion.header)`
   display: flex;
@@ -12,7 +13,7 @@ const IconWrapper = styled(motion.header)`
 `
 const ProgressBar = styled(motion.div)`
   height: 1px;
-  border-bottom: 1px solid #000000;
+  border-bottom: ${theme.colors.gray00};
   margin: 0 0 20px;
   transition: all 500ms ease;
 `
