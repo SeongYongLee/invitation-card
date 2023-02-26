@@ -6,6 +6,7 @@ import Title from 'components/common/title'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 const StyledHeader = styled(motion.header)`
   position: relative;
@@ -14,9 +15,9 @@ const StyledHeader = styled(motion.header)`
   width: auto;
   padding: 30px 25px 50px;
 
-  background-color: #252442;
+  background-color: transparent;
 
-  color: #ffffff;
+  color: ${theme.colors.white};
 `
 
 const NumberOfInvitations = styled(motion.div)`

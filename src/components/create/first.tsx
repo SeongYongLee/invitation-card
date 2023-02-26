@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 import { Title } from './common/title'
 
@@ -23,7 +24,7 @@ const HomepartyCard = styled(motion.div)`
   width: 237px;
   height: 388px;
 
-  background-color: #f7f8fa;
+  background-color: ${theme.colors.cta01};
 `
 
 export const CreateFirst = () => {
