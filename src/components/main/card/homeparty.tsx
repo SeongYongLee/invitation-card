@@ -15,7 +15,6 @@ const Wrapper = styled(motion.div)`
   padding: 15px 20px;
   border-radius: 12px;
 
-  font-family: 'Pretendard';
   font-style: normal;
 `
 

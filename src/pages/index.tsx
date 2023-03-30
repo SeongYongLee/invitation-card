@@ -53,7 +53,6 @@ const CreateArea = styled(motion.div)`
   background-color: ${theme.colors.white};
   border-radius: 12px;
 
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 800;
   font-size: 24px;
@@ -65,7 +64,6 @@ const CreateArea = styled(motion.div)`
 `
 
 const GuideText = styled(motion.div)`
-  font-family: 'Pretendard';
   font-weight: 800;
   font-size: 22px;
   line-height: 130%;

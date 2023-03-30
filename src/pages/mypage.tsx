@@ -45,7 +45,6 @@ const IconWrapper = styled(motion.div)`
 `
 
 const Email = styled(motion.div)`
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -65,7 +64,6 @@ const ManageDetail = styled(motion.div)`
   background: ${theme.colors.ctamypage};
   border-radius: 12px;
 
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
