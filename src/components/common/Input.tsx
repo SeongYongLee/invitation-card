@@ -16,7 +16,6 @@ const StyledInput = styled(motion.input)<{ width?: number; height?: number }>`
   width: ${({ width }) => (width ? `${width}px` : '100%')};
   height: ${({ height }) => (height ? `${height}px` : '50px')};
   color: white;
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;

@@ -24,7 +24,6 @@ const RadioWrapper = styled(motion.div)`
 const StyledLabel = styled(motion.label)<{ checked: boolean }>`
   position: absolute;
 
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;

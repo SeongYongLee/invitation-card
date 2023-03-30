@@ -21,7 +21,6 @@ const StyledHeader = styled(motion.header)`
 `
 
 const NumberOfInvitations = styled(motion.div)`
-  font-family: 'Pretendard';
   font-style: normal;
   font-size: 12px;
 
