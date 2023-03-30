@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import router from 'next/router'
 import styled from '@emotion/styled'
-import { Inter } from '@next/font/google'
 import Button from 'components/common/button'
 import HomePartyCard from 'components/main/card/homeparty'
 import InvitationCard from 'components/main/card/invitation'
@@ -12,8 +11,6 @@ import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
-
-const inter = Inter({})
 
 const Container = styled(motion.div)`
   background-color: ${theme.colors.bg00};
@@ -34,7 +31,6 @@ const Content = styled(motion.div)`
 `
 
 const Guide = styled(motion.div)`
-  font-family: ${inter.style.fontFamily};
   position: absolute;
   bottom: 153px;
   height: calc(100vh - 153px - 120px);
