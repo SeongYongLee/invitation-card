@@ -14,6 +14,7 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     config.resolve.plugins = [new TsconfigPathsPlugin()]
     return config
