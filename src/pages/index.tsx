@@ -127,9 +127,7 @@ const Home: NextPage = () => {
                 <div>사람을 위한</div>
                 <div>초대장을 만들어 보세요!</div>
               </div>
-              <Button onClick={pushCreate} height={44}>
-                초대장 만들기
-              </Button>
+              <Button onClick={pushCreate} label={'초대장 만들기'} />
             </CreateArea>
             <GuideText variants={fadeScaleVariant}>다가오는 파티</GuideText>
             <HomePartyCardWrapper variants={fadeScaleVariant}>
