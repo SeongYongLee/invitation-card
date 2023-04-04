@@ -22,7 +22,7 @@ const PurpleArea = styled(motion.div)`
   height: 209px;
   width: 100%;
   background-color: ${theme.colors.tertiary};
-  z-index: 0;
+  z-index: ${theme['z-index'].min};
 `
 
 const Guide = styled(motion.div)`

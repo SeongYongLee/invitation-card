@@ -40,6 +40,10 @@ const theme = {
       },
     },
   },
+  ['z-index']: {
+    max: 99,
+    min: 0,
+  },
 }
 
 export default theme

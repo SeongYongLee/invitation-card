@@ -15,7 +15,7 @@ const StyledHeader = styled(motion.header)`
   width: auto;
   height: 60px;
   padding: 30px 25px 0;
-  z-index: 99;
+  z-index: ${theme['z-index'].max};
   color: ${theme.colors.white};
 `
 
