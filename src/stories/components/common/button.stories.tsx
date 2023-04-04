@@ -1,34 +1,31 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import Button from 'components/common/button'
 
-export default {
-  title: 'Components/Button',
+const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     label: { control: 'text', defaultValue: 'Button Label' },
     kind: {
       control: 'radio',
       options: ['primary', 'outline', 'text', 'special'],
-      defaultValue: 'primary',
     },
     disabled: {
-      control: 'boolean',
-      defaultValue: false,
       description: '값이 true이면 구성 요소가 비활성화됩니다.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
     },
-    width: { control: 'number', defaultValue: 0 },
-    height: { control: 'number', defaultValue: 0 },
     onClick: { action: 'clicked' },
   },
-} as ComponentMeta<typeof Button>
+  args: {
+    label: 'Button Label',
+    disabled: false,
+    width: 0,
+    height: 0,
+  },
+}
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export default meta
 
-export const Primary = Template.bind({})
-Primary.args = {
-  kind: 'primary',
+export const Primary: StoryObj<typeof Button> = {
+  args: {
+    kind: 'primary',
+  },
 }
