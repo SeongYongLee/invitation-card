@@ -12,6 +12,7 @@ import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const Container = styled(motion.div)`
   background-color: ${theme.colors.bg00};
@@ -101,17 +102,10 @@ const InvitationCardTypeWrapper = styled(motion.div)`
 `
 
 const InvitationCardWrapper = styled(motion.div)`
-  display: flex;
-  gap: 8px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
   margin: 20px 0;
 
-  div:first-of-type {
-    margin-left: 25px;
-  }
-  div:last-of-type {
-    margin-right: 25px;
+  .swiper-slide {
+    width: 134px;
   }
 `
 
@@ -177,14 +171,32 @@ const Home: NextPage = () => {
           <InvitationTypeCard />
         </InvitationCardTypeWrapper>
         <InvitationCardWrapper variants={fadeScaleVariant}>
-          <InvitationCard />
-          <InvitationCard />
-          <InvitationCard />
-          <InvitationCard />
-          <InvitationCard />
-          <InvitationCard />
-          <InvitationCard />
-          <InvitationCard />
+          <Swiper
+            slidesPerView={'auto'}
+            spaceBetween={12}
+            slidesOffsetBefore={25}
+            slidesOffsetAfter={25}
+            grabCursor={true}
+          >
+            <SwiperSlide>
+              <InvitationCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <InvitationCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <InvitationCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <InvitationCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <InvitationCard />
+            </SwiperSlide>
+            <SwiperSlide>
+              <InvitationCard />
+            </SwiperSlide>
+          </Swiper>
         </InvitationCardWrapper>
         <Divider />
         <MainFooter />
