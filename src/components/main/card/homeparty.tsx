@@ -73,11 +73,11 @@ const CardSubWrapper = styled(motion.div)`
 `
 
 const CardTime = styled(motion.div)`
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
   line-height: 130%;
 
-  color: ${theme.colors.graytime};
+  color: ${theme.colors.text.main.homepartytime};
 `
 
 const Reaction = styled(motion.div)`
