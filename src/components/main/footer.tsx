@@ -10,9 +10,8 @@ const StyledFooter = styled(motion.footer)`
   position: relative;
   display: flex;
   justify-content: space-between;
-  background: ${theme.colors.tertiary};
+  background: ${theme.colors['background-color'].footer};
   height: 133px;
-  transform: translateY(-100%);
   padding: 10px 25px;
 `
 
@@ -21,13 +20,10 @@ const Address = styled(motion.div)`
   font-weight: 400;
   font-size: 12px;
   line-height: 130%;
-
   text-align: center;
   letter-spacing: -0.03em;
-
-  color: ${theme.colors.white};
-
-  opacity: 0.6;
+  color: ${theme.colors.gray02};
+  margin: 2px 0;
 `
 
 const ImageWrapper = styled(motion.div)`

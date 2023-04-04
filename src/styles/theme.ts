@@ -24,6 +24,9 @@ const theme = {
         homepartytime: '#8B8B97',
       },
     },
+    ['background-color']: {
+      footer: '#242424',
+    },
     // check
     button: {
       common: {
