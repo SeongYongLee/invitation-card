@@ -118,7 +118,7 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
 
 export default function Button({
   kind = 'primary',
-  disabled,
+  disabled = false,
   label,
   onClick,
   width,
