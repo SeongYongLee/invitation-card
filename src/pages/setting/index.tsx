@@ -5,9 +5,10 @@ import Title from 'components/common/title'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 const Content = styled(motion.div)`
-  margin: 16px;
+  margin: ${theme.margin.default}px;
 `
 
 const Header = styled(motion.div)`

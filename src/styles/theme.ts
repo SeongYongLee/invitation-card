@@ -44,6 +44,9 @@ const theme = {
     max: 99,
     min: 0,
   },
+  margin: {
+    default: 26,
+  },
 }
 
 export default theme
