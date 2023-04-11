@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import router from 'next/router'
 import styled from '@emotion/styled'
-import Title from 'components/common/title'
+import Logo from 'components/common/logo'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -30,7 +30,7 @@ const MainHeader = () => {
       animate="animate"
       variants={fadeScaleVariant}
     >
-      <Title />
+      <Logo />
       <Image
         onClick={pushMyPage}
         src="/images/profile.svg"
