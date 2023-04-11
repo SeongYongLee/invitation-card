@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Button from 'components/common/button'
+import component from 'components/common/button'
 
-const meta: Meta<typeof Button> = {
-  component: Button,
+const meta: Meta<typeof component> = {
+  component,
   argTypes: {
-    label: { control: 'text', defaultValue: 'Button Label' },
     kind: {
       control: 'radio',
       options: ['primary', 'outline', 'text', 'special'],
@@ -24,7 +23,7 @@ const meta: Meta<typeof Button> = {
 
 export default meta
 
-export const Primary: StoryObj<typeof Button> = {
+export const Primary: StoryObj<typeof component> = {
   args: {
     kind: 'primary',
   },
