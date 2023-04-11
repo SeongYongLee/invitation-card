@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
 
-const TitleWrapper = styled(motion.div)`
+const Wrapper = styled(motion.div)`
   margin-top: 20px;
   font-style: normal;
   font-weight: 800;
@@ -15,24 +15,20 @@ const TitleWrapper = styled(motion.div)`
   color: ${theme.colors.white};
 `
 
-const Text = styled(motion.span)``
-
-const TitleDot = styled(motion.span)`
+const Dot = styled(motion.span)`
   color: ${theme.colors.primary};
 `
 
-const Title = () => {
+export default function Logo() {
   return (
-    <TitleWrapper
+    <Wrapper
       initial="initial"
       animate="animate"
       exit="exit"
       variants={fadeScaleVariant}
     >
-      <Text variants={fadeScaleVariant}>Dear</Text>
-      <TitleDot variants={fadeScaleVariant}>.</TitleDot>
-    </TitleWrapper>
+      <motion.span variants={fadeScaleVariant}>Dear</motion.span>
+      <Dot variants={fadeScaleVariant}>.</Dot>
+    </Wrapper>
   )
 }
-
-export default Title
