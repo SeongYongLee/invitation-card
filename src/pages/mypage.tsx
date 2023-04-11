@@ -23,7 +23,7 @@ const PurpleArea = styled(motion.div)`
 
 const Content = styled(motion.div)`
   position: relative;
-  padding: 16px;
+  padding: ${theme.margin.default}px;
 `
 
 const Header = styled(motion.div)`
