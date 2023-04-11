@@ -4,7 +4,7 @@ import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Title } from './common/title'
+import Title from '../common/title'
 
 const HomepartyCardWrapper = styled(motion.div)`
   margin: 20px 0;
@@ -25,7 +25,7 @@ const HomepartyCard = styled(motion.div)`
 export const CreateFirst = () => {
   return (
     <motion.div initial="initial" animate="animate" variants={fadeScaleVariant}>
-      <Title text={'초대장 스타일을'} secondText={'선택해 주세요'} />
+      <Title text={'초대장 스타일을'} secondLineText={'선택해 주세요'} />
       <HomepartyCardWrapper>
         <Swiper
           slidesPerView={'auto'}

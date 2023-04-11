@@ -3,6 +3,7 @@ import Image from 'next/image'
 import router from 'next/router'
 import styled from '@emotion/styled'
 import Button from 'components/common/button'
+import Title from 'components/common/title'
 import HomePartyCard from 'components/main/card/homeparty'
 import InvitationCard from 'components/main/card/invitation'
 import InvitationTypeCard from 'components/main/card/invitationtype'
@@ -78,20 +79,16 @@ const Number = styled(motion.span)`
   color: ${theme.colors.primary};
 `
 
-const GuideText = styled(motion.div)`
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 130%;
-  margin: 25px 25px 15px;
+const HomePartyCardWrapper = styled(motion.div)`
+  margin: 10px 0;
 `
-
-const HomePartyCardWrapper = styled(motion.div)``
 
 const InvitationCardTypeWrapper = styled(motion.div)`
   display: flex;
   gap: 8px;
   flex-wrap: nowrap;
   overflow-x: auto;
+  margin: 10px 0;
 
   div:first-of-type {
     margin-left: 25px;
@@ -153,14 +150,14 @@ const Home: NextPage = () => {
             label={'초대장 만들기'}
           />
         </CreateArea>
-        <GuideText variants={fadeScaleVariant}>다가오는 파티</GuideText>
+        <Title text={'다가오는 파티'} horizontalMargin={26} />
         <HomePartyCardWrapper variants={fadeScaleVariant}>
           <HomePartyCard />
           <HomePartyCard />
           <HomePartyCard />
           <HomePartyCard />
         </HomePartyCardWrapper>
-        <GuideText variants={fadeScaleVariant}>이런 초대장은 어때요?</GuideText>
+        <Title text={'이런 초대장은 어때요?'} horizontalMargin={26} />
         <InvitationCardTypeWrapper variants={fadeScaleVariant}>
           <InvitationTypeCard />
           <InvitationTypeCard />
