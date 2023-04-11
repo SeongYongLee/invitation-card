@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
 const Wrapper = styled(motion.div)<{ horizontalmargin?: number }>`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 800;
   font-size: 22px;

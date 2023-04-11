@@ -6,7 +6,6 @@ import theme from 'styles/theme'
 
 const TitleWrapper = styled(motion.div)`
   margin-top: 20px;
-  font-family: 'LINESeedKR';
   font-style: normal;
   font-weight: 800;
   font-size: 28.7078px;

@@ -1,6 +1,7 @@
 import { css, Global } from '@emotion/react'
 
 const globalStyles = () => css`
+  // reset css
   html,
   body,
   div,
@@ -125,6 +126,13 @@ const globalStyles = () => css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  // END: reset css
+
+  // global font
+  body {
+    font-family: 'Pretendard', sans-serif;
+  }
+  // END: global font
 
   // body scroll remove
   body {
