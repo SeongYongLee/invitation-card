@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import router from 'next/router'
 import styled from '@emotion/styled'
-import { Title } from 'components/create/common/title'
+import Title from 'components/common/title'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -67,17 +67,17 @@ const MyPage: NextPage = () => {
         </IconWrapper>
       </Header>
       <Menu>
-        <Title text={'설정'} horizontalmargin={0} />
+        <Title text={'설정'} />
         <TitleWrapper onClick={pushTerms}>
-          <Title text={'서비스 이용 약관'} horizontalmargin={0} />
+          <Title text={'서비스 이용 약관'} />
           {'>'}
         </TitleWrapper>
         <TitleWrapper onClick={pushPolicy}>
-          <Title text={'개인정보처리방침'} horizontalmargin={0} />
+          <Title text={'개인정보처리방침'} />
           {'>'}
         </TitleWrapper>
-        <Title text={'만든 사람들'} horizontalmargin={0} />
-        <Title text={'앱 평가하기'} horizontalmargin={0} />
+        <Title text={'만든 사람들'} />
+        <Title text={'앱 평가하기'} />
       </Menu>
     </Content>
   )

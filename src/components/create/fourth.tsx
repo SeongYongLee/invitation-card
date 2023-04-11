@@ -1,7 +1,6 @@
+import Title from 'components/common/title'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
-
-import { Title } from './common/title'
 
 export const CreateFourth = () => {
   return (

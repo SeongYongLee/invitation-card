@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import router from 'next/router'
 import styled from '@emotion/styled'
-import { Title } from 'components/create/common/title'
+import Title from 'components/common/title'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -56,7 +56,7 @@ const Terms: NextPage = () => {
         </IconWrapper>
       </Header>
       <Wrapper>
-        <Title text={'서비스 이용 약관'} horizontalmargin={0} />
+        <Title text={'서비스 이용 약관'} />
       </Wrapper>
     </Content>
   )
