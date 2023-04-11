@@ -42,7 +42,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.8.7",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
-    "typescript": "5.0.2"
+    "typescript": "5.0.4"
   },
   "resolutions": {
     "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
