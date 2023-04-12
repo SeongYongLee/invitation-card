@@ -18,6 +18,18 @@ const theme = {
     white: '#FFFFFF', // check
     black: '#000000', // check
     error: '#F23535',
+    // check
+    button: {
+      common: {
+        disabled: '#EFEFEF',
+      },
+      primary: {
+        active: '#4207CA',
+      },
+      outline: {
+        active: '#EEE7FF',
+      },
+    },
   },
 }
 
