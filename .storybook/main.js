@@ -9,14 +9,18 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-mdx-gfm',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-webpack5',
+  framework: {
+    name: '@storybook/nextjs',
+    options: {},
   },
   staticDirs: ['../public'],
   webpackFinal: async (config) => {
     config.resolve.plugins = [new TsconfigPathsPlugin()]
     return config
+  },
+  docs: {
+    autodocs: true,
   },
 }
