@@ -1,10 +1,9 @@
-import { actions } from '@storybook/addon-actions'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import Component from 'components/common/button'
+import Button from 'components/common/button'
 
 export default {
   title: 'Components/Button',
-  component: Component,
+  component: Button,
   argTypes: {
     label: { control: 'text', defaultValue: 'Button Label' },
     kind: {
@@ -23,13 +22,13 @@ export default {
     },
     width: { control: 'number', defaultValue: 0 },
     height: { control: 'number', defaultValue: 0 },
+    onClick: { action: 'clicked' },
   },
-} as ComponentMeta<typeof Component>
+} as ComponentMeta<typeof Button>
 
-const eventsFromObject = actions({ onClick: 'clicked' })
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-const Template: ComponentStory<typeof Component> = (args) => (
-  <Component {...args} {...eventsFromObject} />
-)
-
-export const Button = Template.bind({})
+export const Primary = Template.bind({})
+Primary.args = {
+  kind: 'primary',
+}
