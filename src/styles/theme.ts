@@ -12,12 +12,18 @@ const theme = {
     gray02: '#757575',
     gray03: '#DEDEDE',
     gray04: '#F2F2F2',
-    graytime: '#8B8B97', // check
     bg00: '#F0F4FB',
     bg01: '#FDFDFD',
     white: '#FFFFFF', // check
     black: '#000000', // check
     error: '#F23535',
+    // check
+    text: {
+      main: {
+        create: '#1F1F24',
+        homepartytime: '#8B8B97',
+      },
+    },
     // check
     button: {
       common: {
