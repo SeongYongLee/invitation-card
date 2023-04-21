@@ -32,6 +32,7 @@ const MainHeader = () => {
     >
       <Logo />
       <Image
+        priority={true}
         onClick={pushMyPage}
         src="/images/profile.svg"
         alt="profile"
