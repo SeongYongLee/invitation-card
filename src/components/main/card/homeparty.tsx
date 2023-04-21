@@ -105,7 +105,13 @@ const HomePartyCard = () => {
         <CardTime variants={fadeScaleVariant}>12월 28일</CardTime>
         <Reaction>
           <ReactionType>
-            <Image src="/images/heart.svg" alt="heart" width={24} height={24} />
+            <Image
+              priority={true}
+              src="/images/heart.svg"
+              alt="heart"
+              width={24}
+              height={24}
+            />
             <div>14</div>
           </ReactionType>
           <ReactionType>
