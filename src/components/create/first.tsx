@@ -2,20 +2,15 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Title } from './common/title'
 
 const HomepartyCardWrapper = styled(motion.div)`
-  display: flex;
-  gap: 15px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  margin: 20px 0;
 
-  div:first-of-type {
-    margin-left: calc(50% - 118px);
-  }
-  div:last-of-type {
-    margin-right: calc(50% - 118px);
+  .swiper-slide {
+    width: 237px;
   }
 `
 
@@ -32,12 +27,44 @@ export const CreateFirst = () => {
     <motion.div initial="initial" animate="animate" variants={fadeScaleVariant}>
       <Title text={'초대장 스타일을'} secondText={'선택해 주세요'} />
       <HomepartyCardWrapper>
-        <HomepartyCard variants={fadeScaleVariant}>홈파티 카드</HomepartyCard>
-        <HomepartyCard variants={fadeScaleVariant}>홈파티 카드</HomepartyCard>
-        <HomepartyCard variants={fadeScaleVariant}>홈파티 카드</HomepartyCard>
-        <HomepartyCard variants={fadeScaleVariant}>홈파티 카드</HomepartyCard>
-        <HomepartyCard variants={fadeScaleVariant}>홈파티 카드</HomepartyCard>
-        <HomepartyCard variants={fadeScaleVariant}>홈파티 카드</HomepartyCard>
+        <Swiper
+          slidesPerView={'auto'}
+          spaceBetween={12}
+          slidesOffsetBefore={25}
+          slidesOffsetAfter={25}
+          grabCursor={true}
+        >
+          <SwiperSlide>
+            <HomepartyCard variants={fadeScaleVariant}>
+              홈파티 카드
+            </HomepartyCard>
+          </SwiperSlide>
+          <SwiperSlide>
+            <HomepartyCard variants={fadeScaleVariant}>
+              홈파티 카드
+            </HomepartyCard>
+          </SwiperSlide>
+          <SwiperSlide>
+            <HomepartyCard variants={fadeScaleVariant}>
+              홈파티 카드
+            </HomepartyCard>
+          </SwiperSlide>
+          <SwiperSlide>
+            <HomepartyCard variants={fadeScaleVariant}>
+              홈파티 카드
+            </HomepartyCard>
+          </SwiperSlide>
+          <SwiperSlide>
+            <HomepartyCard variants={fadeScaleVariant}>
+              홈파티 카드
+            </HomepartyCard>
+          </SwiperSlide>
+          <SwiperSlide>
+            <HomepartyCard variants={fadeScaleVariant}>
+              홈파티 카드
+            </HomepartyCard>
+          </SwiperSlide>
+        </Swiper>
       </HomepartyCardWrapper>
     </motion.div>
   )

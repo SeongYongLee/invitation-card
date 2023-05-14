@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import Layout from 'styles/layout'
 
 import '../../public/fonts/pretendard/pretendard.css'
+import 'swiper/css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
