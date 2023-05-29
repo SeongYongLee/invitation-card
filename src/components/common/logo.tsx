@@ -21,12 +21,7 @@ const Dot = styled(motion.span)`
 
 export default function Logo() {
   return (
-    <Wrapper
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={fadeScaleVariant}
-    >
+    <Wrapper initial="initial" animate="animate" variants={fadeScaleVariant}>
       <motion.span variants={fadeScaleVariant}>Dear</motion.span>
       <Dot variants={fadeScaleVariant}>.</Dot>
     </Wrapper>
