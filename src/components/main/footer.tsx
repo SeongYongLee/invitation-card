@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import styled from '@emotion/styled'
-import Title from 'components/common/title'
+import Logo from 'components/common/logo'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
@@ -34,7 +34,7 @@ const MainFooter = () => {
   return (
     <StyledFooter initial="initial" animate="animate" exit="exit">
       <div>
-        <Title />
+        <Logo />
         <Address variants={fadeScaleVariant}>
           관악구 신림동길 무한 행복 하우스
         </Address>
