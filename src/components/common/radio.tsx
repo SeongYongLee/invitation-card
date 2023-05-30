@@ -34,6 +34,10 @@ const RadioWrapper = styled(motion.div)<RadioWrapperProps>`
   border-radius: 29px;
   width: ${({ width }) => (width ? `${width}px` : 'fit-content')};
   height: ${({ height }) => (height ? `${height}px` : '36px')};
+  border: ${({ checked }) =>
+    `1px solid ${checked ? 'transparent' : theme.colors.gray03}`};
+
+  transition: width 0.4s, height 0.4s, background-color 0.3s, border 0.3s;
 `
 
 const StyledRadio = styled(motion.input)`
@@ -55,6 +59,8 @@ const StyledLabel = styled(motion.label)<{ checked: boolean }>`
   color: ${({ checked }) =>
     checked ? theme.colors.white : theme.colors.tertiary};
   white-space: nowrap;
+
+  transition: color 0.2s;
 `
 
 export interface Props extends HTMLAttributes<HTMLInputElement> {
