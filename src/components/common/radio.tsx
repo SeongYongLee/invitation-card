@@ -1,4 +1,5 @@
 import React, { ChangeEvent, HTMLAttributes, useState } from 'react'
+import Image from 'next/image'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -12,17 +13,24 @@ const Container = styled(motion.div)`
   }
 `
 
-const RadioWrapper = styled(motion.div)<{
+interface RadioWrapperProps {
+  checked: boolean
   width?: number
   height?: number
-  checked: boolean
-}>`
+  defaultValueSetColor?: boolean
+}
+
+const RadioWrapper = styled(motion.div)<RadioWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ checked }) =>
-    checked ? theme.colors.primary : theme.colors.white};
+  background-color: ${({ checked, defaultValueSetColor }) =>
+    checked
+      ? theme.colors.primary
+      : defaultValueSetColor
+      ? theme.colors.gray04
+      : theme.colors.white};
   border-radius: 29px;
   width: ${({ width }) => (width ? `${width}px` : 'fit-content')};
   height: ${({ height }) => (height ? `${height}px` : '36px')};
@@ -34,7 +42,10 @@ const StyledRadio = styled(motion.input)`
 `
 
 const StyledLabel = styled(motion.label)<{ checked: boolean }>`
-  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 
   font-style: normal;
   font-weight: 500;
@@ -43,12 +54,20 @@ const StyledLabel = styled(motion.label)<{ checked: boolean }>`
   padding: 9px 16px;
   color: ${({ checked }) =>
     checked ? theme.colors.white : theme.colors.tertiary};
+  white-space: nowrap;
 `
 
 export interface Props extends HTMLAttributes<HTMLInputElement> {
   name: string
-  values: string[]
+  values: {
+    text: string
+    icon?: {
+      default: string
+      pressed: string
+    }
+  }[]
   defaultValueIndex?: number
+  defaultValueSetColor?: boolean
   width?: number
   height?: number
 }
@@ -56,14 +75,13 @@ export interface Props extends HTMLAttributes<HTMLInputElement> {
 export default function Radio({
   name,
   values,
-  defaultValueIndex,
+  defaultValueIndex = 0,
+  defaultValueSetColor,
   onChange,
   width,
   height,
 }: Props) {
-  const [checkedValue, setCheckedValue] = useState(
-    values[defaultValueIndex ?? 0]
-  )
+  const [checkedValue, setCheckedValue] = useState(defaultValueIndex)
 
   return (
     <Container initial="initial" animate="animate" variants={fadeScaleVariant}>
@@ -73,30 +91,44 @@ export default function Radio({
         freeMode={true}
         modules={[FreeMode]}
       >
-        {values.map((value, index) => (
+        {values.map(({ text, icon }, index) => (
           <SwiperSlide key={index}>
-            <RadioWrapper checked={value === checkedValue}>
+            <RadioWrapper
+              defaultValueSetColor={
+                defaultValueSetColor && defaultValueIndex === index
+              }
+              checked={index === checkedValue}
+            >
               <StyledRadio
-                id={`${name}-${value}`}
+                id={`${name}-${index}`}
                 name={name}
                 type="radio"
                 variants={fadeScaleVariant}
                 width={width}
                 height={height}
-                value={value}
-                checked={checkedValue === value}
+                value={text}
+                checked={checkedValue === index}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  setCheckedValue(e.target.value)
+                  setCheckedValue(index)
                   if (onChange) {
                     onChange(e)
                   }
                 }}
               />
               <StyledLabel
-                htmlFor={`${name}-${value}`}
-                checked={value === checkedValue}
+                htmlFor={`${name}-${index}`}
+                checked={index === checkedValue}
               >
-                {value}
+                {icon && (
+                  <Image
+                    priority={true}
+                    src={index === checkedValue ? icon.pressed : icon.default}
+                    alt={text}
+                    width={20}
+                    height={20}
+                  />
+                )}
+                {text}
               </StyledLabel>
             </RadioWrapper>
           </SwiperSlide>

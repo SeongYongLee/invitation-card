@@ -4,7 +4,36 @@ import Title from 'components/common/title'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
-const values = ['집들이', '생일', '이벤트', '직접입력']
+const values = [
+  {
+    text: '나만의 초대장',
+    icon: {
+      default: '/images/radio_card.svg',
+      pressed: '/images/radio_card_pressed.svg',
+    },
+  },
+  {
+    text: '생일',
+    icon: {
+      default: '/images/radio_gift.svg',
+      pressed: '/images/radio_gift_pressed.svg',
+    },
+  },
+  {
+    text: '집들이',
+    icon: {
+      default: '/images/radio_homeparty.svg',
+      pressed: '/images/radio_homeparty_pressed.svg',
+    },
+  },
+  {
+    text: '이벤트',
+    icon: {
+      default: '/images/radio_event.svg',
+      pressed: '/images/radio_event_pressed.svg',
+    },
+  },
+]
 
 export const CreateThird = () => {
   return (
