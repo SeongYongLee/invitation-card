@@ -1,9 +1,8 @@
 import Input from 'components/common/Input'
 import Radio from 'components/common/radio'
+import Title from 'components/common/title'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
-
-import { Title } from './common/title'
 
 const values = ['집들이', '생일', '이벤트', '직접입력']
 

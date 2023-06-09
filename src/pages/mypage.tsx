@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import router from 'next/router'
 import styled from '@emotion/styled'
-import { Title } from 'components/create/common/title'
+import Title from 'components/common/title'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -101,11 +101,7 @@ const MyPage: NextPage = () => {
           </IconWrapper>
           <div onClick={pushSetting}>설정</div>
         </Header>
-        <Title
-          text={'꿈틀희의'}
-          secondText={'파티 공간'}
-          horizontalmargin={0}
-        />
+        <Title text={'꿈틀희의'} secondLineText={'파티 공간'} />
         <ManageDetail variants={fadeScaleVariant}>
           <Email>www.homeparty/Gumtelhee</Email>
           <ManagementText>{'프로필 수정 >'}</ManagementText>
