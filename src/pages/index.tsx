@@ -42,7 +42,7 @@ const CreateArea = styled(motion.div)`
   justify-content: space-between;
 
   height: 290px;
-  margin: 20px 25px;
+  margin: 20px ${theme.margin.default}px;
   padding: 85px 20px 30px;
   border-radius: 12px;
   background: url(${'/images/main_card.svg'}) no-repeat center;
@@ -91,10 +91,10 @@ const InvitationCardTypeWrapper = styled(motion.div)`
   margin: 10px 0;
 
   div:first-of-type {
-    margin-left: 25px;
+    margin-left: ${theme.margin.default}px;
   }
   div:last-of-type {
-    margin-right: 25px;
+    margin-right: ${theme.margin.default}px;
   }
 `
 
@@ -150,14 +150,17 @@ const Home: NextPage = () => {
             label={'초대장 만들기'}
           />
         </CreateArea>
-        <Title text={'다가오는 파티'} horizontalMargin={26} />
+        <Title text={'다가오는 파티'} horizontalMargin={theme.margin.default} />
         <HomePartyCardWrapper variants={fadeScaleVariant}>
           <HomePartyCard />
           <HomePartyCard />
           <HomePartyCard />
           <HomePartyCard />
         </HomePartyCardWrapper>
-        <Title text={'이런 초대장은 어때요?'} horizontalMargin={26} />
+        <Title
+          text={'이런 초대장은 어때요?'}
+          horizontalMargin={theme.margin.default}
+        />
         <InvitationCardTypeWrapper variants={fadeScaleVariant}>
           <InvitationTypeCard />
           <InvitationTypeCard />
