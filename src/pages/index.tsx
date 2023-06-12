@@ -128,6 +128,7 @@ const Home: NextPage = () => {
         <CreateArea variants={fadeScaleVariant}>
           <ImageWrapper>
             <Image
+              priority={true}
               src="/images/balloon.svg"
               alt="balloon"
               width={100}
