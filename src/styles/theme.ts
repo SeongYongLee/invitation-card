@@ -14,6 +14,7 @@ const theme = {
     gray04: '#F2F2F2',
     bg00: '#F0F4FB',
     bg01: '#FDFDFD',
+    bgdark: '#2B2B2B', // check
     white: '#FFFFFF', // check
     black: '#000000', // check
     error: '#F23535',

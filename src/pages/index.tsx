@@ -3,12 +3,13 @@ import Image from 'next/image'
 import router from 'next/router'
 import styled from '@emotion/styled'
 import Button from 'components/common/button'
+import { Header } from 'components/common/header'
+import Logo from 'components/common/logo'
 import Title from 'components/common/title'
 import HomePartyCard from 'components/main/card/homeparty'
 import InvitationCard from 'components/main/card/invitation'
 import InvitationTypeCard from 'components/main/card/invitationtype'
 import MainFooter from 'components/main/footer'
-import MainHeader from 'components/main/header'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
@@ -110,11 +111,15 @@ const Divider = styled(motion.div)`
   height: 60px;
 `
 
-const Home: NextPage = () => {
-  const pushCreate = () => {
-    router.push(ROUTES.CREATE)
-  }
+const pushCreate = () => {
+  router.push(ROUTES.CREATE)
+}
 
+const pushMyPage = () => {
+  router.push(ROUTES.MYPAGE)
+}
+
+const Home: NextPage = () => {
   return (
     <Container
       initial="initial"
@@ -123,7 +128,20 @@ const Home: NextPage = () => {
       variants={fadeScaleVariant}
     >
       <PurpleArea />
-      <MainHeader />
+      <Header
+        padding="30px 25px 0"
+        previousContent={<Logo />}
+        nextContent={
+          <Image
+            priority={true}
+            onClick={pushMyPage}
+            src="/images/profile.svg"
+            alt="profile"
+            width={60}
+            height={50}
+          />
+        }
+      />
       <Guide>
         <CreateArea variants={fadeScaleVariant}>
           <ImageWrapper>

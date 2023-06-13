@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import router from 'next/router'
 import styled from '@emotion/styled'
+import { Header } from 'components/common/header'
 import {
   CreateComplete,
   CreateFirst,
   CreateFooter,
   CreateFourth,
-  CreateHeader,
   CreateSecond,
   CreateThird,
 } from 'components/create'
 import { ROUTES } from 'constants/routes'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
+import theme from 'styles/theme'
 
 const totalStep = 5
 
@@ -21,9 +23,15 @@ const Container = styled(motion.div)`
   height: 100vh;
 `
 
-const Content = styled(motion.div)`
+const Content = styled(motion.div)<{ isDarkMode: boolean }>`
   height: 100vh;
-  margin: 17px;
+
+  background-color: ${({ isDarkMode }) =>
+    isDarkMode ? theme.colors.bgdark : 'transparent'};
+  color: ${({ isDarkMode }) =>
+    isDarkMode ? theme.colors.white : theme.colors.black};
+
+  transition: background-color 0.3s;
 `
 
 const Create: NextPage = () => {
@@ -36,6 +44,18 @@ const Create: NextPage = () => {
 
     setStep(step + 1)
   }
+
+  const previousStep = () => {
+    if (step === 1) {
+      router.back()
+      return
+    }
+
+    setStep(step - 1)
+  }
+
+  const isDarkMode = step === 2
+
   const CreateContainers = [
     <CreateFirst key="first" />,
     <CreateSecond key="second" />,
@@ -51,8 +71,29 @@ const Create: NextPage = () => {
       exit="exit"
       variants={fadeScaleVariant}
     >
-      <Content initial="initial" animate="animate" variants={fadeScaleVariant}>
-        <CreateHeader totalStep={totalStep} step={step} />
+      <Content
+        initial="initial"
+        animate="animate"
+        variants={fadeScaleVariant}
+        isDarkMode={isDarkMode}
+      >
+        <Header
+          padding="40px 25px 30px"
+          previousContent={
+            <Image
+              src={
+                isDarkMode
+                  ? '/images/arrow_left_dark.svg'
+                  : '/images/arrow_left.svg'
+              }
+              alt="back"
+              width={24}
+              height={24}
+              onClick={previousStep}
+            />
+          }
+          nextContent={<div onClick={nextStep}>다음</div>}
+        />
         {CreateContainers[step - 1]}
       </Content>
       <CreateFooter
