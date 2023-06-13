@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006 -s ../public",
-    "build-storybook": "storybook build -s public"
+    "build-storybook": "storybook build -s public",
+    "chromatic": "npx chromatic"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -35,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "babel-loader": "^9.1.2",
+    "chromatic": "^6.18.0",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "eslint-config-prettier": "^8.8.0",
