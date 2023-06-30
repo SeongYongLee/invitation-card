@@ -3,7 +3,9 @@ import styled from '@emotion/styled'
 import Button from 'components/common/button'
 
 const StyledFooter = styled.footer`
-  height: 106px;
+  position: relative;
+  height: 84px;
+  margin: 0 25px;
   transform: translateY(-100%);
 `
 

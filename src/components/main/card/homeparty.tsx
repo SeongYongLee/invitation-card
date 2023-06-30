@@ -106,7 +106,7 @@ const HomePartyCard = () => {
         <Reaction>
           <ReactionType>
             <Image
-              priority={true}
+              priority
               src="/images/heart.svg"
               alt="heart"
               width={24}

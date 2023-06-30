@@ -133,7 +133,7 @@ const Home: NextPage = () => {
         previousContent={<Logo />}
         nextContent={
           <Image
-            priority={true}
+            priority
             onClick={pushMyPage}
             src="/images/profile.svg"
             alt="profile"
@@ -146,7 +146,7 @@ const Home: NextPage = () => {
         <CreateArea variants={fadeScaleVariant}>
           <ImageWrapper>
             <Image
-              priority={true}
+              priority
               src="/images/balloon.svg"
               alt="balloon"
               width={100}

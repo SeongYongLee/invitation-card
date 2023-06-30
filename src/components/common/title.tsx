@@ -3,11 +3,13 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 
+interface WrapperProps {
+  horizontalMargin?: number
+}
+
 const Wrapper = styled(motion.div, {
   shouldForwardProp: (props) => props !== 'horizontalMargin',
-})<{
-  horizontalMargin?: number
-}>`
+})<WrapperProps>`
   font-style: normal;
   font-weight: 700;
   font-size: 22px;

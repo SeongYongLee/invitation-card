@@ -19,11 +19,13 @@ import theme from 'styles/theme'
 
 const totalStep = 5
 
-const Container = styled(motion.div)`
-  height: 100vh;
-`
+interface ContainerProps {
+  isDarkMode: boolean
+}
 
-const Content = styled(motion.div)<{ isDarkMode: boolean }>`
+const Container = styled(motion.div, {
+  shouldForwardProp: (props) => props !== 'isDarkMode',
+})<ContainerProps>`
   height: 100vh;
 
   background-color: ${({ isDarkMode }) =>
@@ -32,6 +34,10 @@ const Content = styled(motion.div)<{ isDarkMode: boolean }>`
     isDarkMode ? theme.colors.white : theme.colors.black};
 
   transition: background-color 0.3s;
+`
+
+const ContentWrapper = styled(motion.div)`
+  height: 100vh;
 `
 
 const Create: NextPage = () => {
@@ -70,15 +76,15 @@ const Create: NextPage = () => {
       animate="animate"
       exit="exit"
       variants={fadeScaleVariant}
+      isDarkMode={isDarkMode}
     >
-      <Content
+      <ContentWrapper
         initial="initial"
         animate="animate"
         variants={fadeScaleVariant}
-        isDarkMode={isDarkMode}
       >
         <Header
-          padding="40px 25px 30px"
+          padding={`40px ${theme.margin.default}px 30px`}
           previousContent={
             <Image
               src={
@@ -95,7 +101,7 @@ const Create: NextPage = () => {
           nextContent={<div onClick={nextStep}>다음</div>}
         />
         {CreateContainers[step - 1]}
-      </Content>
+      </ContentWrapper>
       <CreateFooter
         text={totalStep === step ? '홈으로 돌아가기' : '다음 단계로 이동'}
         nextStep={nextStep}

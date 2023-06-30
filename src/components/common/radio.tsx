@@ -20,7 +20,9 @@ interface RadioWrapperProps {
   defaultValueSetColor?: boolean
 }
 
-const RadioWrapper = styled(motion.div)<RadioWrapperProps>`
+const RadioWrapper = styled(motion.div, {
+  shouldForwardProp: (props) => props !== 'defaultValueSetColor',
+})<RadioWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,8 +36,10 @@ const RadioWrapper = styled(motion.div)<RadioWrapperProps>`
   border-radius: 29px;
   width: ${({ width }) => (width ? `${width}px` : 'fit-content')};
   height: ${({ height }) => (height ? `${height}px` : '36px')};
-  border: ${({ checked }) =>
-    `1px solid ${checked ? 'transparent' : theme.colors.gray03}`};
+  border: ${({ checked, defaultValueSetColor }) =>
+    `1px solid ${
+      checked || defaultValueSetColor ? 'transparent' : theme.colors.gray03
+    }`};
 
   transition: width 0.4s, height 0.4s, background-color 0.3s, border 0.3s;
 `
@@ -127,7 +131,7 @@ export default function Radio({
               >
                 {icon && (
                   <Image
-                    priority={true}
+                    priority
                     src={index === checkedValue ? icon.pressed : icon.default}
                     alt={text}
                     width={20}
