@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import component from 'components/common/radio'
+import component from 'components/common/radio_swiper'
 
 const meta: Meta<typeof component> = {
   component,

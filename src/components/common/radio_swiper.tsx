@@ -82,7 +82,7 @@ export interface Props extends HTMLAttributes<HTMLInputElement> {
   height?: number
 }
 
-export default function Radio({
+export default function RadioSwiper({
   name,
   values,
   defaultValueIndex = 0,

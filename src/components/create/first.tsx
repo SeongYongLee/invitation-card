@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styled from '@emotion/styled'
-import Radio from 'components/common/radio'
+import RadioSwiper from 'components/common/radio_swiper'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
@@ -110,7 +110,7 @@ export const CreateFirst = () => {
       <StyleSelectWrapper>
         <Title text={'나의 초대장 스타일을 선택해 주세요'} />
         <Divider />
-        <Radio
+        <RadioSwiper
           name={'style'}
           values={values}
           defaultValueIndex={0}
