@@ -41,7 +41,7 @@ const ContentWrapper = styled(motion.div)`
 `
 
 const Create: NextPage = () => {
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(3)
   const nextStep = () => {
     if (totalStep === step) {
       router.push(ROUTES.HOME)
