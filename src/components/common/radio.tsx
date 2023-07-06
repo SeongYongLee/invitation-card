@@ -3,10 +3,13 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { fadeScaleVariant } from 'styles/motions'
 import theme from 'styles/theme'
+import { FreeMode } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const Container = styled(motion.div)`
-  display: flex;
-  gap: 10px;
+  .swiper-slide {
+    width: fit-content;
+  }
 `
 
 const RadioWrapper = styled(motion.div)<{
@@ -21,7 +24,7 @@ const RadioWrapper = styled(motion.div)<{
   background-color: ${({ checked }) =>
     checked ? theme.colors.primary : theme.colors.white};
   border-radius: 29px;
-  min-width: ${({ width }) => (width ? `${width}px` : '50px')};
+  width: ${({ width }) => (width ? `${width}px` : 'fit-content')};
   height: ${({ height }) => (height ? `${height}px` : '36px')};
 `
 
@@ -64,32 +67,41 @@ export default function Radio({
 
   return (
     <Container initial="initial" animate="animate" variants={fadeScaleVariant}>
-      {values.map((value, index) => (
-        <RadioWrapper key={index} checked={value === checkedValue}>
-          <StyledRadio
-            id={`${name}-${value}`}
-            name={name}
-            type="radio"
-            variants={fadeScaleVariant}
-            width={width}
-            height={height}
-            value={value}
-            checked={checkedValue === value}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setCheckedValue(e.target.value)
-              if (onChange) {
-                onChange(e)
-              }
-            }}
-          />
-          <StyledLabel
-            htmlFor={`${name}-${value}`}
-            checked={value === checkedValue}
-          >
-            {value}
-          </StyledLabel>
-        </RadioWrapper>
-      ))}
+      <Swiper
+        slidesPerView={'auto'}
+        spaceBetween={10}
+        freeMode={true}
+        modules={[FreeMode]}
+      >
+        {values.map((value, index) => (
+          <SwiperSlide key={index}>
+            <RadioWrapper checked={value === checkedValue}>
+              <StyledRadio
+                id={`${name}-${value}`}
+                name={name}
+                type="radio"
+                variants={fadeScaleVariant}
+                width={width}
+                height={height}
+                value={value}
+                checked={checkedValue === value}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  setCheckedValue(e.target.value)
+                  if (onChange) {
+                    onChange(e)
+                  }
+                }}
+              />
+              <StyledLabel
+                htmlFor={`${name}-${value}`}
+                checked={value === checkedValue}
+              >
+                {value}
+              </StyledLabel>
+            </RadioWrapper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </Container>
   )
 }
