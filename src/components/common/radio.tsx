@@ -6,43 +6,40 @@ import theme from 'styles/theme'
 
 const Container = styled(motion.div)`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 `
 
-const RadioWrapper = styled(motion.div)`
-  position: relative;
-
+const RadioWrapper = styled(motion.div)<{
+  width?: number
+  height?: number
+  checked: boolean
+}>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+
+  background-color: ${({ checked }) =>
+    checked ? theme.colors.primary : theme.colors.white};
+  border-radius: 29px;
+  min-width: ${({ width }) => (width ? `${width}px` : '50px')};
+  height: ${({ height }) => (height ? `${height}px` : '36px')};
+`
+
+const StyledRadio = styled(motion.input)`
+  position: absolute;
+  appearance: none;
 `
 
 const StyledLabel = styled(motion.label)<{ checked: boolean }>`
-  position: absolute;
+  white-space: nowrap;
 
   font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 130%;
-  color: ${({ checked }) => (checked ? 'white' : 'black')};
-`
-
-const StyledRadio = styled(motion.input)<{ width?: number; height?: number }>`
-  background-color: ${theme.colors.gray00};
-  border-radius: 12px;
-  width: ${({ width }) => (width ? `${width}px` : '100%')};
-  height: ${({ height }) => (height ? `${height}px` : '50px')};
-  margin: 0 16px;
-
-  appearance: none;
-
-  :checked {
-    background-color: ${theme.colors.gray02};
-  }
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  padding: 9px 16px;
+  color: ${({ checked }) =>
+    checked ? theme.colors.white : theme.colors.tertiary};
 `
 
 export interface Props extends HTMLAttributes<HTMLInputElement> {
@@ -68,9 +65,9 @@ export default function Radio({
   return (
     <Container initial="initial" animate="animate" variants={fadeScaleVariant}>
       {values.map((value, index) => (
-        <RadioWrapper key={index}>
+        <RadioWrapper key={index} checked={value === checkedValue}>
           <StyledRadio
-            id={value}
+            id={`${name}-${value}`}
             name={name}
             type="radio"
             variants={fadeScaleVariant}
@@ -85,7 +82,10 @@ export default function Radio({
               }
             }}
           />
-          <StyledLabel htmlFor={value} checked={value === checkedValue}>
+          <StyledLabel
+            htmlFor={`${name}-${value}`}
+            checked={value === checkedValue}
+          >
             {value}
           </StyledLabel>
         </RadioWrapper>
